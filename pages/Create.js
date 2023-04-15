@@ -60,10 +60,11 @@ export default function Create() {
                             </div>
                         </Form.Item>
                     </Form.Item>
-                    <Form.Item className='p-4 bg-transparent'>
+                    <Form.Item className='p-4 bg-transparent shadow-[0px_4px_4px_rgba(0,_0,_0,_0.25)]'>
                         <Button className=' font-itim bg-white flex justify-center shadow-[0px_4px_4px_rgba(0,_0,_0,_0.25)] px-6 rounded-lg w-full  '>
                             เพิ่มแบบสอบถาม
                         </Button>
+                        <br/>
                         <Button href='/Dashboard' className=' font-itim bg-white flex justify-center shadow-[0px_4px_4px_rgba(0,_0,_0,_0.25)] px-6 rounded-lg w-full  '>
                             บันทึก
                         </Button>
