@@ -13,7 +13,7 @@ function classNames(...classes) {
 
 export default function Navbar() {
   return (
-    <Disclosure as="nav" className="bg-white w-full fixed z-10 shadow-[0px_4px_4px_rgba(0,_0,_0,_0.25)]">
+    <Disclosure as="nav" className="bg-green-600 w-full fixed z-10 shadow-[0px_4px_4px_rgba(0,_0,_0,_0.25)]">
       {({ open }) => (
         <>
           <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
@@ -49,7 +49,7 @@ export default function Navbar() {
                         key={item.name}
                         href={item.href}
                         className={classNames(
-                          item.current ? 'bg-honeydew-100 text-black' :  ' text-gray-400 hover:bg-honeydew-100 hover:text-black',
+                          item.current ? 'bg-honeydew-100 text-black' :  ' text-white hover:bg-honeydew-100 hover:text-black',
                           'rounded-md px-3 py-2 text-sm font-medium font-itim'
                         )}
                         aria-current={item.current ? 'page' : undefined}
