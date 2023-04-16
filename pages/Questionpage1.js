@@ -12,7 +12,7 @@ export default function questionPage1() {
             <UserNavbar />
             <Questions questions={questions} />
             <main className='h-auto max-h-auto sm:px-0 md:px-[10%] xl:px-[20%]'>
-                <Footer className='px-5 bg-green-600 h-[3.3rem] sm:h-[3.3rem] md:h-[6.6rem] xl:h-[10rem] flex justify-center items-center'>
+                <Footer className='px-5 bg-green-600 h-auto sm:h-auto md:h-[6.6rem] xl:h-[10rem] flex justify-center items-center'>
                     <div className=' justify-start w-1/2 flex items-center  main-font'> 
                         <Link href="/Homepage" className='flex items-center'>
                         <button type="button" class="text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-base px-5 py-2.5 text-center mr-2 mb-2">
