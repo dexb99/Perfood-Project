@@ -37,7 +37,7 @@ export default function UserNavbar() {
     };
     return (
         <>
-            <Disclosure as="nav" className="bg-white fixed z-10 w-full overflow-hidden center shadow-[0px_4px_4px_rgba(0,_0,_0,_0.25)]">
+            <Disclosure as="nav" className="bg-green-600 fixed z-10 w-full overflow-hidden center shadow-[0px_4px_4px_rgba(0,_0,_0,_0.25)]">
                 {({ open }) => (
                     <>
                         <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">

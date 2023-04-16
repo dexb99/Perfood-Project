@@ -26,7 +26,7 @@ export default function CreatePersonal() {
                                 className='p-2 border-solid bg-honeydew-300 h-[35%] max-sm:w-[35%] md:w-[35%] xl:w-[35%] justify-center items-center'>
                                 <div className='justify-center items-center border-dashed bg-honeydew-100 rounded-lg p-2 h-full sm:p-0 md:p-[4%] xl:p-[8%] shadow-[0px_4px_4px_rgba(0,_0,_0,_0.25)]'>
                                     <div className=' justify-center items-center  flex h-full'>
-                                        <img className='w-[100%] h-{100%]' src={'/personal1.png'} />
+                                        <img className='w-[50%] h-{50%]' src={'/personal1.png'} />
                                     </div>
                                 </div>
                             </div>

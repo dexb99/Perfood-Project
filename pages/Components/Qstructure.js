@@ -13,7 +13,7 @@ export default function Qstructure({ question }) {
     };
     return (
         <>
-        <Layout className=' flex-row bg-white rounded-lg border-dashed border-2 border-black shadow-[0px_4px_4px_rgba(0,_0,_0,_0.25)]  '>
+        <Layout className=' flex-row bg-green-400 rounded-lg border-solid border-2 border-black shadow-[0px_4px_4px_rgba(0,_0,_0,_0.25)]  '>
             <Content className='w-[30%] items-center flex justify-center'>
                 <div className=' text-center main-font w-[100%]  '>
                     {question.question}
