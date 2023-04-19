@@ -42,9 +42,9 @@ export default function Summary() {
         <>
             <UserNavbar />
             <main className=' h-screen max-h-screen sm:px-[0] md:px-[10%] xl:px-[20%] py-16 '>
-                <Header className='bg-green-600  h-[15%] justify-end items-center flex'>
+                <Header className='bg-yellow-600  h-[15%] justify-end items-center flex'>
                     <Link className='flex items-center' href="">
-                    <button class="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-base font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-green-400 to-blue-600 group-hover:from-green-400 group-hover:to-blue-600 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800">
+                    <button class="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-base font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-yellow-400 to-orange-600 group-hover:from-yellow-400 group-hover:to-orange-600 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-yellow-200 dark:focus:ring-yellow-800">
                     <span class="relative px-10 py-0 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
                      ที่เที่ยวที่เหมาะกับคุณ
                     </span>
@@ -52,31 +52,31 @@ export default function Summary() {
                     </Link>
                 </Header>
                 <Content className='h-[80%] '>
-                    <Content className='flex bg-honeydew-100 justify-center items-center h-[60%] '>
+                    <Content className='flex bg-yellow-200 justify-center items-center h-[60%] '>
                         <div className='text-center bigger-font'>
                             โอ้ววว ยินดีด้วย คุณคือหนึงใน {"<บุคลักษณ์>"}
                         </div>
                     </Content>
                     <Content className='h-[40%] '>
-                        <div className=' h-1/2 bg-green-500 justify-center text-center items-center flex foot-font'>
+                        <div className=' h-1/2 bg-yellow-500 justify-center text-center items-center flex foot-font'>
                             คำตอบของเราถูกใจท่านหรือไม่
                         </div>
-                        <div className='p-9 px-10  h-1/2 bg-honeydew-200 justify-between items-center flex'>
+                        <div className='p-9 px-10  h-1/2 bg-yellow-100 justify-between items-center flex'>
                         <Rate defaultValue={3} className='h-auto foot-font items-center justify-between  flex w-full ' character={({ index }) => customIcons[index + 1]} />
                         </div>
                     </Content>
                 </Content>
-                <Footer className='bg-green-600  h-[15%] item-center px- flex'>
+                <Footer className='bg-yellow-600  h-[15%] item-center px- flex'>
                     <div className='justify-start w-1/2 flex items-center  main-font'>
                         <Link className=' w-auto items-center flex justify-start' href="/Playgame">
-                        <button type="button" class="text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-base px-6 py-3.5 text-center mr-2 mb-2">
+                        <button type="button" class="text-white bg-gradient-to-br from-yellow-400 to-orange-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-yellow-200 dark:focus:ring-yellow-800 font-medium rounded-lg text-base px-6 py-3.5 text-center mr-2 mb-2">
                             เล่นอีกครั้ง
                         </button>
                         </Link>
                     </div>
                     <div className=' justify-end w-1/2 flex items-center  main-font'>
                         <Link className='  items-center w-auto flex justify-end' onClick={showModal} href="">
-                        <button type="button" class="text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-base px-6 py-3.5 text-center mr-2 mb-2">
+                        <button type="button" class="text-white bg-gradient-to-br from-yellow-400 to-orange-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-yellow-200 dark:focus:ring-yellow-800 font-medium rounded-lg text-base px-6 py-3.5 text-center mr-2 mb-2">
                             แชร์
                         </button>
                         </Link>
@@ -85,13 +85,13 @@ export default function Summary() {
             </main>
             {/* Modal setting */}
             <Modal
-                className='font-itim'
+                className='font-itim '
                 title="ชวนเพื่อนของคุณมาลองเล่น"
                 footer={[
 
                 ]}
                 onCancel={onClose} open={open}>
-                <div className='flex justify-center items-center p-1 rounded-lg'>
+                <div className='flex justify-center items-center p-1 rounded-lg '>
                     <div className='flex justify-center w-1/2 px-3 rounded-lg border-dashed '>
                         <Link href="#">
                         <button type="button" class="text-white bg-[#3b5998] hover:bg-[#3b5998]/90 focus:ring-4 focus:outline-none focus:ring-[#3b5998]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#3b5998]/55 mr-2 mb-2">

@@ -10,21 +10,21 @@ export default function Personal() {
         <>
             <Navbar />
             <main className=" h-screen pt-16 sm:px-5 md:px-[10%] xl:px-[20%]">
-                <Layout className=" sm:px-3 md:px-[2.5%] xl:px-[5%] h-full w-full bg-honeydew-200 ">
+                <Layout className=" sm:px-3 md:px-[2.5%] xl:px-[5%] h-full w-full bg-yellow-100 ">
                     <Header className='   sm:p-1 md:p-[2%] xl:p-[4%] bg-transparent  h-[10%]'>
                         <div className='p-3'>
-                            <Button href='/Createpersonal' className=' font-itim bg-white flex justify-center shadow-[0px_4px_4px_rgba(0,_0,_0,_0.25)] px-6 rounded-lg w-full text-green-500 '>
+                            <Button href='/Createpersonal' className=' font-itim bg-white flex justify-center shadow-[0px_4px_4px_rgba(0,_0,_0,_0.25)] px-6 rounded-lg w-full text-yellow-500 '>
                                 เพิ่มบุคลักษณ์
                             </Button>
                         </div>
                     </Header>
                     <Content className='border-solid h-[80%] sm:p-1 md:p-[2%] xl:p-[4%] '>
                         <div className='border-solid border-2'>
-                            <div className='text-center font-itim main-font font-bold max-sm:text-base bg-green-400 shadow-[0px_4px_4px_rgba(0,_0,_0,_0.25)]'>รายการบุคลักษณ์</div>
+                            <div className='text-center font-itim main-font font-bold max-sm:text-base bg-yellow-400 shadow-[0px_4px_4px_rgba(0,_0,_0,_0.25)]'>รายการบุคลักษณ์</div>
                             {PersonalData.map((personal) => (
                                 <div key={personal.id} className='p-3 border-solid '>
                                     <div className='m-1 bg-white shadow-[0px_4px_4px_rgba(0,_0,_0,_0.25)] flex px-6 py-3  rounded-lg'>
-                                        <div className=' w-1/2 text-start font-itim text-green-500'>
+                                        <div className=' w-1/2 text-start font-itim text-yellow-500'>
                                             {personal.Personaltype}
                                         </div>
                                         <div className=' w-1/2 flex items-center justify-end text-center '>
