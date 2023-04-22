@@ -54,7 +54,7 @@ export default function readme() {
         </Content>
         <Footer className='bg-honeydew-300 flex justify-center items-center'>
           <div className='w-1/4 main-font flex justify-center items-center'>
-          <Link className=' items-center w-auto main-icon flex justify-center ' href="/Homepage">
+          <Link className=' items-center w-auto main-icon flex justify-center ' href="/">
               <button type="button" class="text-white bg-gradient-to-br from-yellow-400 to-orange-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-yellow-200 dark:focus:ring-yellow-800 font-extrabold rounded-lg text-base px-6 py-3.5 text-center mr-2 mb-2">Les't Go</button>
               
               </Link>

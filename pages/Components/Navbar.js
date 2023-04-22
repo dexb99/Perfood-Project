@@ -88,7 +88,7 @@ export default function Navbar() {
                       <Menu.Item>
                         {({ active }) => (
                           <a
-                            href="Homepage"
+                            href="/"
                             className={classNames(active ? ' font-itim bg-gray-100' : 'font-itim', 'block px-4 py-2 text-sm text-gray-700')}
                           >
                             Sign out
