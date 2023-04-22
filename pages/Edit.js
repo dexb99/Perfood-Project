@@ -21,7 +21,7 @@ export default function Edit() {
         <>
             <Navbar />
             <main className=' h-auto  pt-16 sm:px-5 md:px-[10%] xl:px-[20%]'>
-                <Form className=' sm:px-3 md:px-[2.5%] xl:px-[5%] h-auto bg-honeydew-200'>
+                <Form className=' sm:px-3 md:px-[2.5%] xl:px-[5%] h-auto bg-yellow-100'>
                     <Form.Item className=' p-4 h-auto bg-transparent '>
                         <Form.Item className=' px-[1.625rem] shadow-[0px_4px_4px_rgba(0,_0,_0,_0.25)]  p-1 h-auto'>
                             <Input placeholder="หัวข้อแบบสอบถาม" className='font-itim rounded-lg border-2' />

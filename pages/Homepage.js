@@ -20,7 +20,7 @@ export default function Homepage() {
               <div className='text-center font-itim bigger-font '>
                 <div className='sm:px-0 md:px-[5%] xl:px-[10%] flex justify-center items-center bg-yellow-400 shadow-[0px_4px_4px_rgba(0,_0,_0,_0.25)] px-10 w-auto h-1/2 border-dashed rounded-lg  font-itim bigger-font '>
 
-                  <img class="h-auto max-w-full fixed  " src='/line3.png' alt="image description"/>
+                  {/* <img class="h-auto max-w-full fixed  " src='/line3.png' alt="image description"/> */}
                     Welcome to Perfood เชียงคาน
                     
 
@@ -38,7 +38,6 @@ export default function Homepage() {
                     </svg>
                     ลองเล่นเกมของเราสิ
                   </button>
-
                 </Link>
               </div>
             </div>
