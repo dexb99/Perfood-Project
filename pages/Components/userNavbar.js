@@ -11,7 +11,7 @@ function classNames(...classes) {
 
 export default function UserNavbar() {
     const navigation = [
-        { name: 'หน้าแรก', href: '/Homepage', current: false, },
+        { name: 'หน้าแรก', href: '/', current: false, },
         { name: 'จัดการแบบสอบถาม', href: '#', current: false, onClick: () => setOpen(true) },
     ]
     // Set Loading time

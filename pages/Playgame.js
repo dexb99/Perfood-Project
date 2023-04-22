@@ -1,10 +1,8 @@
 import React from 'react'
-import { PlayCircleFilled, FileOutlined } from '@ant-design/icons'
 import { Layout, Button, Drawer, Modal, Form, Input } from 'antd';
 import Link from 'next/link';
 import { useState } from 'react';
 import UserNavbar from './Components/userNavbar';
-import readme from './readme';
 import surveyList from './Components/surveyList';
 export default function Playgame() {
 
