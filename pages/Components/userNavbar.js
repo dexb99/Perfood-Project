@@ -3,6 +3,7 @@ import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import { useState } from 'react'
 import { Modal, Button, Form, Input } from 'antd'
+import Link from 'next/link';
 
 
 function classNames(...classes) {
@@ -37,7 +38,7 @@ export default function UserNavbar() {
     };
     return (
         <>
-            <Disclosure as="nav" className="bg-white fixed z-10 w-full overflow-hidden center shadow-[0px_4px_4px_rgba(0,_0,_0,_0.25)]">
+            <Disclosure as="nav" className="bg-yellow-900 fixed z-10 w-full overflow-hidden center shadow-[0px_4px_4px_rgba(0,_0,_0,_0.25)]">
                 {({ open }) => (
                     <>
                         <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
@@ -127,10 +128,12 @@ export default function UserNavbar() {
             <Modal
                 title={<div className='font-itim'>เข้าสู่ระบบสำหรับผู้ดูแล</div>}
                 footer={[
-                    <Button key="cancle" className='font-itim' onClick={onClose}>ยกเลิก</Button>,
-                    <Button key="submit" className='bg-honeydew-100 font-itim' loading={loading} onClick={handleOk} href='/Dashboard'>
+                    <button type="button" key="cancle" className='text-white bg-gradient-to-br from-yellow-400 to-orange-300 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-yellow-100 dark:focus:ring-yellow-700 px-3 py-2 text-xs font-medium text-center rounded-lg mr-2 mb-2 inline-flex' onClick={onClose}>ยกเลิก</button>,
+                    <Link href='/Dashboard'>
+                    <button key="submit" className='text-white bg-gradient-to-br from-yellow-500 to-orange-400 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-yellow-200 dark:focus:ring-yellow-800 px-3 py-2 text-xs font-medium text-center rounded-lg mr-2 mb-2 inline-flex' loading={loading} onClick={handleOk} >
                         เข้าสู่ระบบ
-                    </Button>
+                    </button>
+                    </Link>
                 ]}
                 onCancel={onClose} open={open}>
 

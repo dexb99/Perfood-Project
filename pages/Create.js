@@ -21,7 +21,7 @@ export default function Create() {
         <>
             <Navbar />
             <main className=' h-auto  pt-16 sm:px-5 md:px-[10%] xl:px-[20%]'>
-                <Form className=' sm:px-3 md:px-[2.5%] xl:px-[5%] h-auto bg-honeydew-200'>
+                <Form className=' sm:px-3 md:px-[2.5%] xl:px-[5%] h-auto bg-yellow-100'>
                     <Form.Item className=' p-4 h-auto bg-transparent '>
                         <Form.Item className=' px-[1.625rem] shadow-[0px_4px_4px_rgba(0,_0,_0,_0.25)]  p-1 h-auto'>
                             <Input placeholder="หัวข้อแบบสอบถาม" className='font-itim rounded-lg border-2' />
@@ -33,14 +33,14 @@ export default function Create() {
                             <div className=' w-full flex p-1' >
                                 <Input placeholder='หัวข้อคำถาม' className='h-10 font-itim rounded-none border-none' />
                                 <div className=' items-center bg-white h-10 rounded-none p-1 flex font-itim'>
-                                    <Link className=' px-5 hover:text-white ' href="#">ลบ</Link>
+                                    <Link className=' px-5 hover:text-white text-yellow-500' href="#">ลบ</Link>
                                 </div>
                             </div>
                             <div>
                                 <Select placeholder="ประเภทคำถาม" className='font-irim p-1'>
                                     <Option value="เลือกตัวเลือกเดียว">เลือกตัวเลือกเดียว</Option>
                                 </Select>
-                                <Button onClick={modalOpen} className=' font-itim  w-full bg-white '>จัดการคำตอบ</Button>
+                                <Button onClick={modalOpen} className=' font-itim  w-full bg-white text-yellow-500 '>จัดการคำตอบ</Button>
                             </div>
                         </Form.Item>
                     </Form.Item>
@@ -49,22 +49,23 @@ export default function Create() {
                             <div className=' w-full flex p-1' >
                                 <Input placeholder='หัวข้อคำถาม' className='h-10 font-itim rounded-none border-none' />
                                 <div className=' items-center bg-white h-10 rounded-none p-1 flex font-itim'>
-                                    <Link className=' px-5 hover:text-white ' href="#">ลบ</Link>
+                                    <Link className=' px-5 hover:text-white text-yellow-500' href="#">ลบ</Link>
                                 </div>
                             </div>
                             <div>
                                 <Select placeholder="ประเภทคำถาม" className='font-irim p-1'>
                                     <Option value="เลือกตัวเลือกเดียว">เลือกตัวเลือกเดียว</Option>
                                 </Select>
-                                <Button onClick={modalOpen} className=' font-itim  w-full bg-white '>จัดการคำตอบ</Button>
+                                <Button onClick={modalOpen} className=' font-itim  w-full bg-white text-yellow-500 '>จัดการคำตอบ</Button>
                             </div>
                         </Form.Item>
                     </Form.Item>
-                    <Form.Item className='p-4 bg-transparent'>
-                        <Button className=' font-itim bg-white flex justify-center shadow-[0px_4px_4px_rgba(0,_0,_0,_0.25)] px-6 rounded-lg w-full  '>
+                    <Form.Item className='p-4 bg-transparent shadow-[0px_4px_4px_rgba(0,_0,_0,_0.25)]'>
+                        <Button className=' font-itim bg-white flex justify-center shadow-[0px_4px_4px_rgba(0,_0,_0,_0.25)] px-6 rounded-lg w-full text-yellow-500 '>
                             เพิ่มแบบสอบถาม
                         </Button>
-                        <Button href='/Dashboard' className=' font-itim bg-white flex justify-center shadow-[0px_4px_4px_rgba(0,_0,_0,_0.25)] px-6 rounded-lg w-full  '>
+                        <br/>
+                        <Button href='/Dashboard' className=' font-itim bg-white flex justify-center shadow-[0px_4px_4px_rgba(0,_0,_0,_0.25)] px-6 rounded-lg w-full text-yellow-500 '>
                             บันทึก
                         </Button>
                     </Form.Item>
