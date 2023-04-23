@@ -12,7 +12,7 @@ export default function Homepage() {
     <>
       <UserNavbar />
       <main className=" bg-cover h-screen sm:px-5 md:px-[10%] xl:px-[20%]">
-        <Layout className="h-full w-full bg-yellow-50">
+        <Layout className="h-full w-full bg-yellow-100">
           <Header className=' bg-transparent h-[10%] justify-end items-center flex'>
           </Header>
           <Content className='h-[70%] '>
