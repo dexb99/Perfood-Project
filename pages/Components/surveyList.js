@@ -1,9 +1,17 @@
-const surveyList = [
-    {
-        id:1,
-        surveyname:"คุณเป็นนักท่องเที่ยวแบบไหนน้า",
-        readme:'/readme',
-        play:'/Questionpage1',
-    },
-]
-export default surveyList
+import React from 'react'
+import { useState,useEffect } from 'react'
+import axios from 'axios'
+export default function surveyList() {
+    const [surveyList, setSuveyList] = useState([])
+    const getSuveyList = () => {
+        axios.get('http://localhost:3001/getSurvey').then((response) => {
+            setSuveyList(response.data);
+        })
+    }
+useEffect(()=>{
+    getSuveyList();
+},[])
+    return (
+        surveyList
+    )
+}

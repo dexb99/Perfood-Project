@@ -1,11 +1,12 @@
 import React from 'react'
 import Questions from './Components/Questions';
 import { Layout, Space, Col, Row, Button } from 'antd';
-import questionData from './Components/questionData';
+import questData from './Components/questData';
 import Link from 'next/link';
 import UserNavbar from './Components/userNavbar';
 export default function questionPage1() {
-    const questions = questionData.slice(8, 12)
+    const data = questData()
+    const questions = data.slice(8, 12)
     const { Footer } = Layout
     return (
         <>
@@ -29,7 +30,7 @@ export default function questionPage1() {
                         <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M11.25 4.5l7.5 7.5-7.5 7.5m-6-15l7.5 7.5-7.5 7.5"></path>
                         </svg>
-                            ถัดไป
+                            ดูผล
                         </button>
                     </Link>
                 </div>

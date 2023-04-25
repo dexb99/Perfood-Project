@@ -1,15 +1,17 @@
 import React from 'react'
 import { Layout, Space, Col, Row, Radio } from 'antd';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
-export default function Qstructure({ question }) {
+export default function Qstructure({ question, onAnwserSelected }) {
 
     const { Header, Content, Footer } = Layout;
     const [selectedValue, setSelectedValue] = useState(null);
+    const [score, setScore] = useState(0);
 
     const handleChange = (event) => {
         setSelectedValue(event.target.value);
+        onAnwserSelected(`questionID is ${question.id} `+` questionScore is ${event.target.value}`);
     };
     return (
         <>
@@ -24,11 +26,11 @@ export default function Qstructure({ question }) {
                 </svg>
                 <Content className='bg-transparent w-[80%] rounded-lg items-center justify-center block'>
                     <Row className='w-full h-full justify-center  shadow-[0px_4px_4px_rgba(0,_0,_0,_0.25)]'>
-                        {question.choices.map((choice, index) => (
+                        {question.choice.map((choice, index) => (
                             <div className='flex justify-start w-full pb-[1%]  shadow-[0px_1px_1px_rgba(0,_0,_0,_0.25)]'>
                                 <Radio.Group key={index} value={selectedValue} onChange={handleChange} className=' w-full flex justify-center text-left p-1'>
-                                    <Radio value={choice.weight} className=' text-left w-full h-full radio-font justify-start flex items-center overflow-auto'>
-                                        {choice.text}
+                                    <Radio value={choice.score} className=' text-left w-full h-full radio-font justify-start flex items-center overflow-auto'>
+                                        {choice.choiceText}
                                     </Radio>
                                 </Radio.Group>
                             </div>

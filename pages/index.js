@@ -1,8 +1,6 @@
 import React from 'react'
-import { PlayCircleFilled, FileOutlined } from '@ant-design/icons'
 import { Layout, Button, Drawer, Modal, Form, Input } from 'antd';
 import Link from 'next/link';
-import { useState } from 'react';
 import UserNavbar from './Components/userNavbar';
 
 export default function Homepage() {
@@ -18,12 +16,12 @@ export default function Homepage() {
           <Content className='h-[70%] '>
             <Content className='flex justify-center items-center h-full '>
               <div className='text-center font-itim bigger-font '>
-                <div className='sm:px-0 md:px-[5%] xl:px-[10%] flex justify-center items-center bg-yellow-400 shadow-[0px_4px_4px_rgba(0,_0,_0,_0.25)] px-10 w-auto h-1/2 border-dashed rounded-lg  font-itim bigger-font '>
-
-                  <img class="h-auto max-w-full fixed  " src='/line3.png' alt="image description"/>
-                    Welcome to Perfood เชียงคาน
-                    
-
+                <div
+                  style={{ backgroundImage: "url('/line3.png')", backgroundRepeat: "no-repeat", backgroundPosition: "center", backgroundSize: "220% 400%" }}
+                  className='sm:px-0 md:px-[5%] xl:px-[10%] flex justify-center items-center bg-yellow-400 shadow-[0px_4px_4px_rgba(0,_0,_0,_0.25)] px-10 w-auto h-1/2 border-dashed rounded-lg  font-itim bigger-font '>
+                  <div>
+                    welcome to Perfood เชียงคาน
+                  </div>
                 </div>
               </div>
             </Content>

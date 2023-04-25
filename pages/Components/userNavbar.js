@@ -4,8 +4,9 @@ import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import { useState } from 'react'
 import { Modal, Button, Form, Input } from 'antd'
 import Link from 'next/link';
-
-
+import axios from 'axios';
+import { redirect } from 'react-router-dom'
+import { useRouter } from 'next/router'
 function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
 }
@@ -17,7 +18,11 @@ export default function UserNavbar() {
     ]
     // Set Loading time
     const [loading, setLoading] = useState(false);
-
+    const [userName, setUserName] = useState('');
+    const [password, setPassword] = useState('');
+    const [loginStatus, setLoginStatus] = useState('');
+    const [pass, setPass] = useState('')
+    const router = useRouter();
     const handleOk = () => {
         setLoading(true);
         setTimeout(() => {
@@ -36,6 +41,24 @@ export default function UserNavbar() {
     const onClose = () => {
         setOpen(false);
     };
+
+    //login function
+    const login = (event) => {
+        event.preventDefault();
+        axios.post('http://localhost:3001/login', {
+            username: userName,
+            password: password
+        }).then((response) => {
+            if (response.data.message) {
+                setLoginStatus(response.data.message);
+            } else {
+                setLoginStatus('เข้าสู่ระบบแล้ว กรุณารอสักครู่');
+                router.push('/Dashboard')
+
+            }
+        })
+    }
+ 
     return (
         <>
             <Disclosure as="nav" className="bg-yellow-900 fixed z-10 w-full overflow-hidden center shadow-[0px_4px_4px_rgba(0,_0,_0,_0.25)]">
@@ -125,15 +148,22 @@ export default function UserNavbar() {
                     </>
                 )}
             </Disclosure>
+
+
+
+
+
             <Modal
                 title={<div className='font-itim'>เข้าสู่ระบบสำหรับผู้ดูแล</div>}
                 footer={[
                     <button type="button" key="cancle" className='text-white bg-gradient-to-br from-yellow-400 to-orange-300 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-yellow-100 dark:focus:ring-yellow-700 px-3 py-2 text-xs font-medium text-center rounded-lg mr-2 mb-2 inline-flex' onClick={onClose}>ยกเลิก</button>,
-                    <Link href='/Dashboard'>
-                    <button key="submit" className='text-white bg-gradient-to-br from-yellow-500 to-orange-400 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-yellow-200 dark:focus:ring-yellow-800 px-3 py-2 text-xs font-medium text-center rounded-lg mr-2 mb-2 inline-flex' loading={loading} onClick={handleOk} >
+
+                    <button key="submit" className='text-white bg-gradient-to-br from-yellow-500 to-orange-400 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-yellow-200 dark:focus:ring-yellow-800 px-3 py-2 text-xs font-medium text-center rounded-lg mr-2 mb-2 inline-flex' loading={loading} onClick={login} >
                         เข้าสู่ระบบ
                     </button>
-                    </Link>
+                    ,
+                    <h1>{loginStatus}</h1>
+
                 ]}
                 onCancel={onClose} open={open}>
 
@@ -153,7 +183,7 @@ export default function UserNavbar() {
                             },
                         ]}
                     >
-                        <Input className='rounded-lg font-itim' placeholder="ชื่อผู้ใช้" />
+                        <Input className='rounded-lg font-itim' onChange={(e) => { setUserName(e.target.value) }} placeholder="ชื่อผู้ใช้" />
                     </Form.Item>
                     <Form.Item
                         name="password"
@@ -164,7 +194,7 @@ export default function UserNavbar() {
                             },
                         ]}
                     >
-                        <Input.Password className=' border-solid border-black border-[1px]  h-[2.625rem] w-full rounded-lg font-itim '
+                        <Input.Password onChange={(e) => { setPassword(e.target.value) }} className=' border-solid border-black border-[1px]  h-[2.625rem] w-full rounded-lg font-itim '
                             placeholder="รหัสผ่าน"
                         />
                     </Form.Item>

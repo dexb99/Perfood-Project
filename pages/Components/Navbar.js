@@ -1,7 +1,7 @@
 import { Fragment } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
-
+import {router} from 'next/router'
 const navigation = [
   { name: 'Dashboard', href: '/Dashboard', current: false },
   { name: 'Personal', href: '/personal', current: false },
@@ -12,6 +12,11 @@ function classNames(...classes) {
 }
 
 export default function Navbar() {
+  const logout = (event) => {
+    event.preventDefault();
+    localStorage.clear();
+    router.push('/')
+  }
   return (
     <Disclosure as="nav" className="bg-yellow-900 w-full fixed z-10 shadow-[0px_4px_4px_rgba(0,_0,_0,_0.25)]">
       {({ open }) => (
@@ -49,7 +54,7 @@ export default function Navbar() {
                         key={item.name}
                         href={item.href}
                         className={classNames(
-                          item.current ? 'bg-yellow-100 text-black' :  ' text-white hover:bg-yellow-100 hover:text-black',
+                          item.current ? 'bg-yellow-100 text-black' : ' text-white hover:bg-yellow-100 hover:text-black',
                           'rounded-md px-3 py-2 text-sm font-medium font-itim'
                         )}
                         aria-current={item.current ? 'page' : undefined}
@@ -88,7 +93,7 @@ export default function Navbar() {
                       <Menu.Item>
                         {({ active }) => (
                           <a
-                            href="/"
+                            onClick={logout}
                             className={classNames(active ? ' font-itim bg-gray-100' : 'font-itim', 'block px-4 py-2 text-sm text-gray-700')}
                           >
                             Sign out

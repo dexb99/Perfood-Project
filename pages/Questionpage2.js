@@ -1,11 +1,12 @@
 import React from 'react'
 import Questions from './Components/Questions';
 import { Layout, Space, Col, Row, Button } from 'antd';
-import questionData from './Components/questionData';
 import Link from 'next/link';
 import UserNavbar from './Components/userNavbar';
+import questData from './Components/questData';
 export default function questionPage1() {
-    const questions = questionData.slice(4, 8)
+    const data = questData();
+    const questions = data.slice(4, 8)
     const { Footer } = Layout
     return (
         <>

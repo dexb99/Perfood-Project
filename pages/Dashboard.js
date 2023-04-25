@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Navbar from './Components/Navbar'
 import surveyList from './Components/surveyList';
 export default function Dashboard() {
+    const survey  = surveyList();
     const { Header, Content, Footer } = Layout;
     return (
         <>
@@ -21,11 +22,11 @@ export default function Dashboard() {
                         <div className='border-solid border-2 '>
                             
                             <div className='text-center font-itim main-font font-bold max-sm:text-base bg-yellow-400 shadow-[0px_4px_4px_rgba(0,_0,_0,_0.25)]'>รายการแบบสอบถาม</div>
-                            {surveyList.map((survey) => (
-                                <div key={survey.id} className='p-3 border-solid '>
+                            {survey.map((survey,index) => (
+                                <div key={index} className='p-3 border-solid '>
                                     <div className='m-1 bg-white shadow-[0px_4px_4px_rgba(0,_0,_0,_0.25)] flex px-6 py-3  rounded-lg'>
                                         <div className=' w-1/2 text-start font-itim text-yellow-500'>
-                                            {survey.surveyname}
+                                            {survey.Survey_Name}
                                         </div>
                                         <div className=' w-1/2 flex items-center justify-end text-center '>
                                             <div className=' bg-gray-400 rounded-lg p-1 font-itim'>
