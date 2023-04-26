@@ -16,7 +16,7 @@ export default function questData() {
         })
     }
 
-    const combineData = questData.map(question => ({
+    const combineData = questData.map((question,index) => ({
         id: question.Question_ID,
         question: question.Question_Text,
         choice: choiceData.filter(choice => choice.Question_ID === question.Question_ID).map(choice => ({

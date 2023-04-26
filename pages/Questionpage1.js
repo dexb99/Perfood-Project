@@ -6,6 +6,7 @@ import Link from 'next/link';
 import UserNavbar from './Components/userNavbar';
 import questData from './Components/questData';
 export default function questionPage1() {
+    const [allQuestionsAnswered, setAllQuestionsAnswered] = useState(false);
     const { Footer } = Layout
     const data = questData();
     // useEffect(()=>{
@@ -16,7 +17,17 @@ export default function questionPage1() {
         setQuest(quest);
     }
     const questions = data.slice(0, 4)
-    console.log(data)
+    // console.log(data)
+
+    useEffect(() => {
+        window.addEventListener('beforeunload', clearLocalStorage);
+        return () => {
+            window.removeEventListener('beforeunload', clearLocalStorage);
+        }
+    }, []);
+    const clearLocalStorage = () => {
+        localStorage.clear();
+    }
     return (
         <>
             <UserNavbar />
