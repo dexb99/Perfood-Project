@@ -28,7 +28,7 @@ export default function EditPersonal() {
     const handleUpload = () => {
         personal.map(personal => {
             if (file.length === 0) {
-                axios.post('http://localhost:3001/updateNoimg', {
+                axios.put('http://localhost:3001/updateNoimg', {
                     Personal_ID: personal.Personal_ID,
                     Personal_Name: newPername,
                     Personal_Detail: newDetail,
@@ -44,7 +44,7 @@ export default function EditPersonal() {
                 formData.append('Personal_Name', newPername)
                 formData.append('Personal_Detail', newDetail)
                 formData.append('Threshold', newThreshold)
-                axios.post('http://localhost:3001/updatewithimg', formData)
+                axios.put('http://localhost:3001/updatewithimg', formData)
                     .then(response => console.log(response))
                     .catch(err => console.log(err));
                 window.location.reload();
@@ -115,7 +115,7 @@ export default function EditPersonal() {
                                     </Button>
                                 </div>
                                 <div className='p-1'>
-                                    <Button href='/Personal' className=' font-itim bg-white flex justify-center shadow-[0px_4px_4px_rgba(0,_0,_0,_0.25)] px-6 rounded-lg w-full text-yellow-500  '>
+                                    <Button href='/personal' className=' font-itim bg-white flex justify-center shadow-[0px_4px_4px_rgba(0,_0,_0,_0.25)] px-6 rounded-lg w-full text-yellow-500  '>
                                         เสร็จสิ้น
                                     </Button>
                                 </div>

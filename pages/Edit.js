@@ -17,11 +17,11 @@ export default function Edit() {
         event.preventDefault()
         const data = [];
         const formData = new FormData(formRef.current);
-        for (let i = 0; i < qindex.length; i++) {
+        for (let i = 0; i < question.length; i++) {
             const obj = {};
             obj.survey = formData.get(`surveyname`);
-            obj.questionid = qindex[i];
-            obj.question = formData.get(`Question ${qindex[i]}`);
+            obj.questionid = question[i];
+            obj.question = formData.get(`Question ${qindex[i].id}`);
             obj.choices = [];
             for (let j = 0; j < choices.length; j++) {
                 const choiceObj = {};
@@ -76,7 +76,8 @@ export default function Edit() {
                     </div>
                     {question.map((question, i) => {
                         return (
-                            <div key={i} className='py-5 px-2 shadow-[0px_4px_4px_rgba(0,_0,_0,_0.25)] pb-0'>
+                            <div key={i} className='py-5 font-itim px-2 shadow-[0px_4px_4px_rgba(0,_0,_0,_0.25)] pb-0'>
+                                คำถามที่ {i+1}
                                 <div
                                     className=' h-auto'>
                                     <div className=' w-full flex p-1' >
