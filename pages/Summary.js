@@ -118,7 +118,7 @@ export default function Summary() {
                                         <div key={index} className='text-black text-center bigger-font'>
                                             {result.Personal_Name}
                                         </div>
-                                        <img src=''/>
+                                        <img src='`http://localhost:3001/images/${personal.Personal_IMG}`'/>
                                     </div>
                                 ))
                             }
