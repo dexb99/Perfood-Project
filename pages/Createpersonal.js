@@ -3,62 +3,112 @@ import { Layout, Button, Drawer, Modal, Form, Input, Select, InputNumber, messag
 import Link from 'next/link';
 import { useState } from 'react';
 import Navbar from './Components/Navbar'
-import surveyList from './Components/surveyList';
+import personalData from './Components/personal_Data';
+import axios from 'axios';
 export default function CreatePersonal() {
-
+    const perData = personalData();
+    const [file, setFile] = useState([]);
+    const [filePreview, setFilePreview] = useState([]);
+    const [perName, setNewpername] = useState('')
+    const [newThreshold, setNewThreshold] = useState(0)
+    const [newDetail, setNewDetail] = useState('');
     const { TextArea } = Input;
+    const handleFileChange = (e) => {
+        const selectedFile = e.target.files[0];
+        if (selectedFile) {
+            setFile(selectedFile);
+            setFilePreview(URL.createObjectURL(selectedFile));
+        }
+        else {
+            console.log('pls upload image');
+        }
+    }
+    const addData = (event) => {
+        const getID = JSON.parse(localStorage.getItem('PercreateID'));
+        console.log(getID)
+        getID.map((id) => {
+            console.log(id.PercreateID)
+            console.log(perName)
+            console.log(newDetail)
+            console.log(newThreshold)
+            if (file.length === 0) {
+                axios.post('http://localhost:3001/createNoimg', {
+                    Personal_ID: id.PercreateID,
+                    Personal_Name: perName,
+                    Personal_Detail: newDetail,
+                    Threshold: newThreshold
+                }).then((response) => {
+                    console.log(response)
+                })
+            } else {
+                const formData = new FormData();
+                formData.append('image', file);
+                formData.append('Personal_ID', id.PercreateID)
+                formData.append('Personal_Name', perName)
+                formData.append('Personal_Detail', newDetail)
+                formData.append('Threshold', newThreshold)
+                axios.post('http://localhost:3001/createWithimg', formData)
+                    .then(response => console.log(response))
+                    .catch(err => console.log(err));
+            }
+        })
+    }
     return (
-        <>
+        <div>
             <Navbar />
             <main className=' h-auto  pt-16 sm:px-5 md:px-[10%] xl:px-[20%]'>
-                <Form className=' sm:px-3 md:px-[2.5%] xl:px-[5%] h-screen bg-yellow-100'>
+                <Form className=' sm:px-3 md:px-[2.5%] xl:px-[5%] h-auto bg-yellow-100'>
                     <Form.Item className=' p-4 h-auto bg-transparent '>
                         <Form.Item className=' px-[1.625rem] shadow-[0px_4px_4px_rgba(0,_0,_0,_0.25)]  p-1 h-auto'>
-                            <Input placeholder="ชื่อบุคลักษณ์" className='font-itim rounded-lg border-2' />
+                            <div className='font-itim text-yellow-500'>
+                                ชื่อบุคลักษณ์
+                            </div>
+                            <Input onChange={(event => {
+                                setNewpername(event.target.value)
+                            })}
+                                placeholder="" className='font-itim rounded-lg w-full border-2' />
                         </Form.Item>
                         <Form.Item className=' px-[1.625rem] shadow-[0px_4px_4px_rgba(0,_0,_0,_0.25)]  p-1 h-auto'>
-                            <InputNumber placeholder="เกณฑ์คะแนน(ค่ามากสุด)" className='font-itim rounded-lg w-full border-2' />
-                        </Form.Item>
-                    </Form.Item>
-                    <Form.Item>
-                        <div className='flex justify-center '>
-                            <div
-                                className='p-2 border-solid bg-yellow-200 h-[35%] max-sm:w-[35%] md:w-[35%] xl:w-[35%] justify-center items-center'>
-                                <div className='justify-center items-center border-dashed bg-yellow-50 rounded-lg p-2 h-full sm:p-0 md:p-[4%] xl:p-[8%] shadow-[0px_4px_4px_rgba(0,_0,_0,_0.25)]'>
-                                    <div className=' justify-center items-center  flex h-full'>
-
-                                        <div class="flex items-center justify-center w-full">
-                                            <label for="dropzone-file" class="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600">
-                                                <div class="flex flex-col items-center justify-center pt-5 pb-6">
-                                                    <svg aria-hidden="true" class="w-10 h-10 mb-3 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path></svg>
-                                                    <p class="mb-2 text-sm text-gray-500 dark:text-gray-400"><span class="font-semibold">Click to upload</span> or drag and drop</p>
-                                                    <p class="text-xs text-gray-500 dark:text-gray-400">SVG, PNG, JPG or GIF (MAX. 800x400px)</p>
-                                                </div>
-                                                <input id="dropzone-file" type="file" class="hidden" />
-                                            </label>
-                                        </div>
-
-                                    </div>
+                            <div className='flex font-itim text-yellow-500'>
+                                <div className='w-1/2 '>
+                                    เกณฑ์คะแนน(ค่ามากสุด)
                                 </div>
                             </div>
+                            <InputNumber
+                                onChange={(value => {
+                                    setNewThreshold(value)
+                                })} placeholder="" className='font-itim rounded-lg w-full border-2' />
+                        </Form.Item>
+                    </Form.Item>
+                    <Form.Item className=''>
+                        <div className='text-center font-itim'>
+                            อัพโหลดรูปบุคลักษณ์
+                        </div>
+                        <div className='border-black border-2'>
+                            <input className='font-itim flex  w-full' type='file' accept='.jpg,.jpeg,.png' onChange={handleFileChange} />
+                        </div>
+                        <div className='flex justify-center'>
+                            {filePreview && <img className=' w-1/2 h-auto' src={filePreview} />}
                         </div>
                     </Form.Item>
                     <Form.Item>
                         <div className='font-itim text-yellow-500'>
                             ข้อมูลบุคลักษณ์
                         </div>
-                        <TextArea placeholder='ข้อมูลบุคลักษณ์' className='font-itim'>
-
-                        </TextArea>
+                        <TextArea onChange={(event => {
+                            setNewDetail(event.target.value)
+                        })} placeholder='ข้อมูลบุคลักษณ์' className='font-itim'></TextArea>
                     </Form.Item>
-                    <Form.Item className='p-4 bg-transparent'>
-                        <Button href='/personal' className=' font-itim bg-white flex justify-center shadow-[0px_4px_4px_rgba(0,_0,_0,_0.25)] px-6 rounded-lg w-full text-yellow-500   '>
-                            บันทึก
-                        </Button>
+                    <Form.Item className=' p-4 bg-transparent'>
+                        <div className='p-1'>
+                            <Button href='/personal' onClick={addData} className=' font-itim bg-white flex justify-center shadow-[0px_4px_4px_rgba(0,_0,_0,_0.25)] px-6 rounded-lg w-full text-yellow-500  '>
+                                เพิ่มข้อมูล
+                            </Button>
+                        </div>
                     </Form.Item>
                 </Form>
-            </main>
 
-        </>
+            </main>
+        </div>
     )
 }

@@ -5,6 +5,8 @@ import {router} from 'next/router'
 const navigation = [
   { name: 'Dashboard', href: '/Dashboard', current: false },
   { name: 'Personal', href: '/personal', current: false },
+  { name: 'Suggest', href: '/Suggest', current: false },
+
 ]
 
 function classNames(...classes) {

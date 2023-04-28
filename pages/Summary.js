@@ -106,7 +106,7 @@ export default function Summary() {
                 <Content className='h-[80%] '>
                     <Content className=' bg-yellow-200 justify-center items-center h-[60%] '>
                         <Row className='flex justify-center'>
-                            <Button className=' text-black flex border-none h-auto shadow-md ' onClick={afterclick}>กด เพื่อ ดูผลลัพท์</Button>
+                            {/* <Button className=' text-black flex border-none h-auto shadow-md ' onClick={afterclick}>กด เพื่อ ดูผลลัพท์</Button> */}
                         </Row>
                         <Row className='flex justify-center items-center h-[80%]'>
                             {
@@ -118,6 +118,7 @@ export default function Summary() {
                                         <div key={index} className='text-black text-center bigger-font'>
                                             {result.Personal_Name}
                                         </div>
+                                        <img src=''/>
                                     </div>
                                 ))
                             }
@@ -182,6 +183,7 @@ export default function Summary() {
                             </button>
                         </Link>
                     </div>
+                    
                 </div>
 
                 <div className='flex justify-center items-center p-1 rounded-lg'>

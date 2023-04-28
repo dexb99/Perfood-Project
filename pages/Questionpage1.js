@@ -17,7 +17,7 @@ export default function questionPage1() {
         setQuest(quest);
     }
     const questions = data.slice(0, 4)
-    // console.log(data)
+    console.log(data)
 
     useEffect(() => {
         window.addEventListener('beforeunload', clearLocalStorage);
