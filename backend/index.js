@@ -246,7 +246,7 @@ app.get('/response', (req, res) => {
 app.post('/login', (req, res) => {
     const username = req.body.username;
     const password = req.body.password;
-    db.query("SELECT * FROM admin WHERE Username = ? AND Password", [username, password], (err, result) => {
+    db.query("SELECT * FROM admin WHERE Username = ? AND Password = ?", [username, password], (err, result) => {
         if (err) {
             console.log(err);
         } else {
