@@ -53,7 +53,7 @@ export default function Qstructure({ question, onAnwserSelected }) {
     return (
         <>
             {/* {console.log(question)} */}
-            <Layout className=' flex-row bg-yellow-400 rounded-lg border-solid border-2 border-black shadow-[0px_4px_4px_rgba(0,_0,_0,_0.25)]  '>
+            <Layout className=' flex-row bg-gradient-to-br from-yellow-700 to-yellow-500 rounded-lg border-solid border-2 border-black shadow-[0px_4px_4px_rgba(0,_0,_0,_0.25)] text-white  '>
                 <Content className='w-[30%] items-center flex justify-center'>
                     <div className=' text-center main-font w-[100%] p-1 '>
                         {question.question}
@@ -65,9 +65,9 @@ export default function Qstructure({ question, onAnwserSelected }) {
                 <Content className='bg-transparent w-[80%] rounded-lg items-center justify-center block'>
                     <Row className='w-full h-full justify-center  shadow-[0px_4px_4px_rgba(0,_0,_0,_0.25)]'>
                         {question.choice.map((choice, index) => (
-                            <div key={index} className='flex justify-start w-full pb-[1%]  shadow-[0px_1px_1px_rgba(0,_0,_0,_0.25)]'>
-                                <Radio.Group key={index} value={selectedValue} onChange={handleChange} className=' w-full flex justify-center text-left p-1'>
-                                    <Radio required id={choice.choiceID} value={choice.score} className=' text-left w-full h-full radio-font justify-start flex items-center overflow-auto'>
+                            <div key={index} className='flex justify-start w-full pb-[1%]  shadow-[0px_1px_1px_rgba(0,_0,_0,_0.25)] '>
+                                <Radio.Group key={index} value={selectedValue} onChange={handleChange} className=' w-full flex justify-center text-left p-1 text-white'>
+                                    <Radio required id={choice.choiceID} value={choice.score} className=' text-left w-full h-full radio-font justify-start flex items-center overflow-auto text-white'>
                                         {choice.choiceText}
                                     </Radio>
                                 </Radio.Group>

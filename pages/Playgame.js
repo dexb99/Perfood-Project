@@ -34,7 +34,7 @@ export default function Playgame() {
             </div>
             <main className=" h-screen sm:px-5 md:px-[10%] xl:px-[20%]">
                 {SuveyList.map((survey, index) => (
-                    <Layout key={index} className="h-full w-full bg-yellow-50 p-3">
+                    <Layout key={index} className="h-full w-full bg-yellow-100 p-3">
                         {/* <Header className='  bg-transparent h-[10%] justify-end items-center flex'>
                 </Header> */}
                         <div className='h-full '>
