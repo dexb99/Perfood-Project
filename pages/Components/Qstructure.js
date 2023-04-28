@@ -2,14 +2,18 @@ import React from 'react'
 import { Layout, Space, Col, Row, Radio } from 'antd';
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
-
-export default function Qstructure({ question, onAnwserSelected }) {
-
+import { shuffle } from 'lodash';
+export default function Qstructure({ question }) {
+    console.log(question)
     const { Header, Content, Footer } = Layout;
     const [selectedValue, setSelectedValue] = useState(0);
     const [score, setScore] = useState(0);
     const [selectedID, setSelectedID] = useState('');
+    const [choices, setChoices] = useState([]);
 
+    useEffect(() => {
+        setChoices(shuffle(question.choice));
+    }, []);
     const handleChange = (event) => {
         setSelectedValue(event.target.value);
         setSelectedID(event.target.name);
@@ -50,6 +54,8 @@ export default function Qstructure({ question, onAnwserSelected }) {
         setSelectedID(event.target.name);
 
     };
+
+
     return (
         <>
             {/* {console.log(question)} */}
@@ -64,9 +70,9 @@ export default function Qstructure({ question, onAnwserSelected }) {
                 </svg>
                 <Content className='bg-transparent w-[80%] rounded-lg items-center justify-center block'>
                     <Row className='w-full h-full justify-center  shadow-[0px_4px_4px_rgba(0,_0,_0,_0.25)]'>
-                        {question.choice.map((choice, index) => (
+                        {choices.map((choice, index) => (
                             <div key={index} className='flex justify-start w-full pb-[1%]  shadow-[0px_1px_1px_rgba(0,_0,_0,_0.25)]'>
-                                <Radio.Group key={index} value={selectedValue} onChange={handleChange} className=' w-full flex justify-center text-left p-1'>
+                                <Radio.Group value={selectedValue} onChange={handleChange} className=' w-full flex justify-center text-left p-1'>
                                     <Radio required id={choice.choiceID} value={choice.score} className=' text-left w-full h-full radio-font justify-start flex items-center overflow-auto'>
                                         {choice.choiceText}
                                     </Radio>

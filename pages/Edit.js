@@ -9,8 +9,7 @@ import surveyList from './Components/surveyList';
 export default function Edit() {
     const question = questData()
     const survey = surveyList()
-    console.log(question)
-    console.log(survey)
+
     const formRef = useRef(null);
     const handleSubmit = (event) => {
 
@@ -21,17 +20,18 @@ export default function Edit() {
             const obj = {};
             obj.survey = formData.get(`surveyname`);
             obj.questionid = question[i];
-            obj.question = formData.get(`Question ${qindex[i].id}`);
+            obj.question = formData.get(`Question ${question[i].id}`);
             obj.choices = [];
-            for (let j = 0; j < choices.length; j++) {
+            for (let j = 0; j < question[i].choice.length; j++) {
                 const choiceObj = {};
-                choiceObj.choiceid = formData.get(`CH${qindex[i]}_${choices[j]}`);
-                choiceObj.choicetext = formData.get(`CH${qindex[i]}_${choices[j]}_text`);
-                choiceObj.score = formData.get(`CH${qindex[i]}_${choices[j]}_score`);
+                choiceObj.choiceid = formData.get(`CH${question[i]}_${question[i].choice[j]}`);
+                choiceObj.choicetext = formData.get(`CH${question[i]}_${question[i].choice[j]}_text`);
+                choiceObj.score = formData.get(`CH${question[i]}_${question[i].choice[j]}_score`);
                 obj.choices.push(choiceObj);
             }
             data.push(obj);
         }
+        console.log(data)
         // const getID = JSON.parse(localStorage.getItem('surcreateID'));
         // getID.map((id) => {
         //     axios.post('http://localhost:3001/createsurvey', {
@@ -64,7 +64,7 @@ export default function Edit() {
             <main className=' h-auto  pt-16 sm:px-5 md:px-[10%] xl:px-[20%]'>
                 <form ref={formRef} onSubmit={handleSubmit} className='  sm:px-3 md:px-[2.5%] xl:px-[5%] h-auto bg-yellow-100'>
                     <div className='justify-center flex p-4 h-auto bg-transparent '>
-                        
+
                         <label className='w-full px-[1.625rem] shadow-[0px_4px_4px_rgba(0,_0,_0,_0.25)]  p-1 h-auto'>
                             <div className='font-itim'>หัวข้อแบบสอบถาม</div>
                             {survey.map(survey => {
@@ -77,7 +77,7 @@ export default function Edit() {
                     {question.map((question, i) => {
                         return (
                             <div key={i} className='py-5 font-itim px-2 shadow-[0px_4px_4px_rgba(0,_0,_0,_0.25)] pb-0'>
-                                คำถามที่ {i+1}
+                                คำถามที่ {i + 1}
                                 <div
                                     className=' h-auto'>
                                     <div className=' w-full flex p-1' >
