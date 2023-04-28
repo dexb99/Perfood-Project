@@ -34,19 +34,19 @@ export default function Edit() {
         console.log(data)
         // const getID = JSON.parse(localStorage.getItem('surcreateID'));
         // getID.map((id) => {
-        //     axios.post('http://localhost:3001/createsurvey', {
+        //     axios.put('http://localhost:3001/updatesurvey', {
         //         surveyID: id.surcreateID,
         //         survey: data[0].survey,
         //     })
         //     data.map((data,) => {
-        //         axios.post('http://localhost:3001/createquestion', {
+        //         axios.put('http://localhost:3001/updatequestion', {
         //             surveyID: id.surcreateID,
         //             question: data.question
         //         }).then((response) => {
         //             console.log(response.data)
         //         })
         //         data.choices.map((choice) => {
-        //             axios.post('http://localhost:3001/createchoice', {
+        //             axios.put('http://localhost:3001/updatechoice', {
         //                 questionid: data.questionid,
         //                 choiceID: choice.choiceid,
         //                 choicetext: choice.choicetext,
@@ -56,7 +56,6 @@ export default function Edit() {
 
         //     })
         // })
-
     };
     return (
         <>
