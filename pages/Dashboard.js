@@ -57,13 +57,7 @@ export default function Dashboard() {
             {console.log(survey)}
             <main className=" h-screen pt-16 sm:px-5 md:px-[10%] xl:px-[20%]">
                 <Layout className=" sm:px-3 md:px-[2.5%] xl:px-[5%] h-full w-full bg-yellow-100 ">
-                    <Header className='   sm:p-1 md:p-[2%] xl:p-[4%] bg-transparent  h-[10%]'>
-                        <div className='p-3'>
-                            <Button href='/Create' onClick={addPerID} className=' font-itim bg-white flex justify-center shadow-[0px_4px_4px_rgba(0,_0,_0,_0.25)] px-6 rounded-lg w-full text-yellow-500 '>
-                                เพิ่มแบบสอบถาม
-                            </Button>
-                        </div>
-                    </Header>
+                    
                     <Content className='border-solid  h-[80%] sm:p-1 md:p-[2%] xl:p-[4%] '>
                         <div className='border-solid border-2 '>
 

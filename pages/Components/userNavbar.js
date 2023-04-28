@@ -61,7 +61,7 @@ export default function UserNavbar() {
  
     return (
         <>
-            <Disclosure as="nav" className="bg-yellow-900 fixed z-10 w-full overflow-hidden center shadow-[0px_4px_4px_rgba(0,_0,_0,_0.25)]">
+            <Disclosure as="nav" className="bg-yellow-900 fixed z-10 w-full overflow-hidden center shadow-[0px_4px_4px_rgba(0,_0,_0,_0.25)] text-white">
                 {({ open }) => (
                     <>
                         <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
@@ -108,7 +108,7 @@ export default function UserNavbar() {
                                                             key={item.name}
                                                             href={item.href}
                                                             className={classNames(
-                                                                item.current ? 'bg-honeydew-100 text-black' : '',
+                                                                item.current ? 'bg-yellow-100 text-black' : '',
                                                                 'font-itim rounded-md px-3 py-2  font-medium'
                                                             )}
                                                             onClick={item.onClick}
@@ -134,7 +134,7 @@ export default function UserNavbar() {
                                         as="a"
                                         href={item.href}
                                         className={classNames(
-                                            item.current ? 'bg-honeydew-100 text-black' : ' text-gray-400 hover:bg-honeydew-100 hover:text-black',
+                                            item.current ? 'bg-yellow-100 text-black' : ' text-gray-400 hover:bg-yellow-100 hover:text-black',
                                             'block rounded-md px-3 py-2 text-base font-medium'
                                         )}
                                         onClick={item.onClick}

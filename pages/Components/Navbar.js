@@ -20,7 +20,7 @@ export default function Navbar() {
     router.push('/')
   }
   return (
-    <Disclosure as="nav" className="bg-yellow-900 w-full fixed z-10 shadow-[0px_4px_4px_rgba(0,_0,_0,_0.25)]">
+    <Disclosure as="nav" className="bg-yellow-900 w-full fixed z-10 shadow-[0px_4px_4px_rgba(0,_0,_0,_0.25)] text-white">
       {({ open }) => (
         <>
           <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
@@ -72,7 +72,7 @@ export default function Navbar() {
                 {/* Profile dropdown */}
                 <Menu as="div" className="relative ml-3">
                   <div>
-                    <Menu.Button className="flex rounded-full bg-honeydew-100 text-sm focus:outline-none focus:ring-2 focus:ring-honeydew-100 focus:ring-offset-2 ">
+                    <Menu.Button className="flex rounded-full bg-yellow-100 text-sm focus:outline-none focus:ring-2 focus:ring-yellow-100 focus:ring-offset-2 ">
                       <span className="sr-only">Open user menu</span>
                       <img
                         className="h-8 w-8 rounded-full"
