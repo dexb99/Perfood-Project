@@ -1,8 +1,8 @@
 import React from 'react'
 import { Layout, Button, Drawer, Modal, Form, Input } from 'antd';
 import Link from 'next/link';
-import Navbar from './Components/Navbar'
-import surveyList from './Components/surveyList';
+import Navbar from '../Components/Navbar'
+import surveyList from '../Components/surveyList';
 export default function Dashboard() {
     const survey = surveyList();
     const handleEdit = (event) => {
@@ -18,10 +18,10 @@ export default function Dashboard() {
             className: "font-itim",
             title: "คุณแน่ใจหรอว่าจะลบข้อมูล",
             onOk: () => {
-                // axios.delete(`http://localhost:3001/deletePERSONAL/${id}`).then((response) => {
-                //     console.log('Personal Deleted')
-                // })
-                // window.location.reload();
+                axios.delete(`http://localhost:3001/deletePERSONAL/${id}`).then((response) => {
+                    console.log('Personal Deleted')
+                })
+                window.location.reload();
             },
             onCancel: () => { },
             okButtonProps: {

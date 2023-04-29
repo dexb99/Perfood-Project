@@ -5,7 +5,7 @@ export default function login() {
     return (
 
         <>
-    
+
             <div className="flex min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
                 <div className="w-full max-w-md space-y-8">
                     <div>
@@ -18,7 +18,7 @@ export default function login() {
                             เข้าสู่ระบบ
                         </h2>
                         <h4 class=" font-bold text-red-800 text-center">ระบบนิเทศนักศึกษาสหกิจศึกษา</h4>
-                        <p class="text-center text-rose-600 relative">คณะเทคโนโลยีอุตสหกรรม มหาวิทยาลัยราชภัฎเลย</p>   
+                        <p class="text-center text-rose-600 relative">คณะเทคโนโลยีอุตสหกรรม มหาวิทยาลัยราชภัฎเลย</p>
 
                     </div>
                     <form className="mt-8 space-y-6" action="#" method="POST">
@@ -78,7 +78,7 @@ export default function login() {
                         <p class="text-center text-white relative">คณะเทคโนโลยีอุตสหกรรม มหาวิทยาลัยราชภัฎเลย</p>   
                 </div>
                 </div> */}
-               
+
             </div>
 
 

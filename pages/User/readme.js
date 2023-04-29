@@ -1,9 +1,8 @@
 import React from 'react';
 import { Col, Row, Image, Button, Layout, Drawer } from 'antd';
-import personalData from './Components/personal_Data';
-import UserNavbar from './Components/userNavbar';
+import personalData from '../Components/personal_Data';
+import UserNavbar from '../Components/userNavbar';
 import { useState } from 'react';
-import Navbar from './Components/Navbar';
 import Link from 'next/link';
 
 

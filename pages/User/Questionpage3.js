@@ -1,10 +1,10 @@
 import React from 'react'
 import Questions from './Components/Questions';
 import { Layout, Space, Col, Row, Button } from 'antd';
-import questData from './Components/questData';
+import questData from '../Components/questData';
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import UserNavbar from './Components/userNavbar';
+import UserNavbar from '../Components/userNavbar';
 import axios from 'axios';
 export default function questionPage1() {
     const data = questData()

@@ -1,10 +1,10 @@
 import React from 'react'
 import { useState, useEffect } from 'react';
-import Questions from './Components/Questions';
+import Questions from '../Components/Questions';
 import { Layout } from 'antd';
 import Link from 'next/link';
-import UserNavbar from './Components/userNavbar';
-import questData from './Components/questData';
+import UserNavbar from '../Components/userNavbar';
+import questData from '../Components/questData';
 export default function questionPage1() {
     const [allQuestionsAnswered, setAllQuestionsAnswered] = useState(false);
     const { Footer } = Layout

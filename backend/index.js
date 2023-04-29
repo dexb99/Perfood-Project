@@ -5,6 +5,7 @@ const cors = require('cors');
 const multer = require('multer');
 const path = require('path');
 const cookieSession = require('cookie-session');
+const { send } = require('process');
 app.use(cors());
 app.use(express.json());
 app.use(express.static('uploads'))
@@ -31,7 +32,6 @@ const db = mysql.createConnection({
 
 app.post('/upload', upload.single('image'), (req, res) => {
     const image = req.file.filename;
-
     // db.query("UPDATE `personal` SET `Personal_IMG` = ? WHERE `personal`.`Personal_ID` = 'PER_04' ", [image])
 })
 
@@ -79,7 +79,7 @@ app.put('/updatewithimg', upload.single('image'), (req, res) => {
         if (err) {
             console.log(err);
         } else {
-            console.log('Updated')
+            //
         }
     })
 })
@@ -93,7 +93,7 @@ app.put('/updateNoimg', (req, res) => {
         if (err) {
             console.log(err);
         } else {
-            console.log('Updated')
+            //
         }
     })
 })
@@ -161,7 +161,6 @@ app.post('/createsurvey', (req, res) => {
             console.log('inserted')
         }
     })
-
 })
 app.post('/createquestion', (req, res) => {
     const surveyID = req.body.surveyID
@@ -192,6 +191,47 @@ app.post('/createchoice', (req, res) => {
 
 
 })
+
+
+// UPDATE and question and choice
+app.put('/updatesurvey', (req, res) => {
+    const surveyID = req.body.surveyID
+    const survey = req.body.survey
+
+    db.query("UPDATE survey SET Survey_Name = ? WHERE `survey`.`Survey_ID`=?", [survey, surveyID], (err, result) => {
+        if (err) {
+            console.log(err);
+
+        } else {
+            // console.log(result)
+        }
+    }) 
+})
+app.put('/updatequestion', (req, res) => {
+    const questionid = req.body.questionid
+    const question = req.body.question
+    db.query("UPDATE question SET Question_Text = ? WHERE `question`.`Question_ID` = ?", [question, questionid], (err, result) => {
+        if (err) {
+            console.log(err);
+        } else {
+            //
+        }
+    })
+})
+app.put('/updatechoice', (req, res) => {
+    const choiceID = req.body.choiceID
+    const choicetext = req.body.choicetext
+    const score = req.body.score
+    db.query("UPDATE choice SET Choice_text = ?, Choice_Score = ? WHERE `choice`.`Choice_ID` = ?", [choicetext, score, choiceID], (err, result) => {
+        if (err) {
+            console.log(err);
+        } else {
+            // console.log('inserted')
+        }
+    })
+
+})
+
 
 app.get('/getSurvey', (req, res) => {
     db.query("SELECT * FROM survey", (err, result) => {
@@ -316,6 +356,7 @@ app.post('/result', (req, res) => {
         }
     });
 })
+
 
 //add questionscore per user
 app.post('/questscore', (req, res) => {

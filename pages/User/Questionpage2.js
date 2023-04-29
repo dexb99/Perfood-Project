@@ -3,8 +3,8 @@ import Questions from './Components/Questions';
 import { Layout, Space, Col, Row, Button } from 'antd';
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import UserNavbar from './Components/userNavbar';
-import questData from './Components/questData';
+import UserNavbar from '../Components/userNavbar';
+import questData from '../Components/questData';
 export default function questionPage1() {
     const data = questData();
     const questions = data.slice(4, 8)

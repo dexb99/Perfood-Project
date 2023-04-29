@@ -3,17 +3,22 @@ import { Button, Form, Input, InputNumber, message, Upload } from 'antd';
 import Link from 'next/link';
 import { InboxOutlined } from '@ant-design/icons';
 import { useState } from 'react';
-import Navbar from './Components/Navbar'
-import surveyList from './Components/surveyList';
+import Navbar from '../Components/Navbar'
 import axios from 'axios';
-import personalByID from './Components/personalByID';
+import personalByID from '../Components/personalByID';
 export default function EditPersonal() {
+
+    window.onpopstate = function (event) {
+        localStorage.clear();
+    };
+
+
     const [file, setFile] = useState([]);
     const [filePreview, setFilePreview] = useState([]);
     const personal = personalByID();
-    const [newPername, setNewPername] = useState('')
-    const [newThreshold, setNewThreshold] = useState(0)
-    const [newDetail, setNewDetail] = useState('')
+    const [newPername, setNewPername] = useState(null)
+    const [newThreshold, setNewThreshold] = useState(null)
+    const [newDetail, setNewDetail] = useState(null)
 
     const handleFileChange = (e) => {
         const selectedFile = e.target.files[0];
@@ -30,9 +35,9 @@ export default function EditPersonal() {
             if (file.length === 0) {
                 axios.put('http://localhost:3001/updateNoimg', {
                     Personal_ID: personal.Personal_ID,
-                    Personal_Name: newPername,
-                    Personal_Detail: newDetail,
-                    Threshold: newThreshold
+                    Personal_Name: newPername || personal.Personal_Name,
+                    Personal_Detail: newDetail || personal.Personal_Detail,
+                    Threshold: newThreshold || personal.Threshold
                 }).then((response) => {
                     console.log(response)
                 })
@@ -41,9 +46,9 @@ export default function EditPersonal() {
                 const formData = new FormData();
                 formData.append('image', file);
                 formData.append('Personal_ID', personal.Personal_ID)
-                formData.append('Personal_Name', newPername)
-                formData.append('Personal_Detail', newDetail)
-                formData.append('Threshold', newThreshold)
+                formData.append('Personal_Name', newPername || personal.Personal_Name)
+                formData.append('Personal_Detail', newDetail || personal.Personal_Detail)
+                formData.append('Threshold', newThreshold || personal.Threshold)
                 axios.put('http://localhost:3001/updatewithimg', formData)
                     .then(response => console.log(response))
                     .catch(err => console.log(err));
@@ -86,7 +91,7 @@ export default function EditPersonal() {
                                         </div>
                                     </div>
                                     <InputNumber
-                                    defaultValue={personal.Threshold}
+                                        defaultValue={personal.Threshold}
                                         onChange={(value => {
                                             setNewThreshold(value)
                                         })} placeholder="" className='font-itim rounded-lg w-full border-2' />

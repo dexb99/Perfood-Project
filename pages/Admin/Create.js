@@ -2,9 +2,9 @@ import React from 'react'
 import { Layout, Button, Drawer, Modal, Form, Input, Select, InputNumber } from 'antd';
 import Link from 'next/link';
 import { useState, useRef } from 'react';
-import Navbar from './Components/Navbar'
+import Navbar from '../Components/Navbar'
 import axios from 'axios';
-import questData from './Components/questData';
+import questData from '../Components/questData';
 export default function Create() {
     const { Option } = Select;
 
