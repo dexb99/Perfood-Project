@@ -3,7 +3,7 @@ import { Layout, Button, Drawer, Modal, Form, Input } from 'antd';
 import Link from 'next/link';
 import Navbar from './Components/Navbar'
 import surveyList from './Components/surveyList';
-export default function Dashboard() {
+export default function Survey() {
     const survey = surveyList();
     const handleEdit = (event) => {
         const PersonalID = [{
@@ -53,7 +53,6 @@ export default function Dashboard() {
     }
     return (
         <>
-            <Navbar />
             {console.log(survey)}
             <main className=" h-screen pt-16 sm:px-5 md:px-[10%] xl:px-[20%]">
                 <Layout className=" sm:px-3 md:px-[2.5%] xl:px-[5%] h-full w-full bg-yellow-100 ">

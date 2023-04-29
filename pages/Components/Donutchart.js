@@ -41,11 +41,11 @@ function Donut() {
         <>
             {/* Doughnut chart */}
             {/* <h1 className="w-[150px] mx-auto mt-10 text-xl font-semibold capitalize ">Doughnut Chart</h1> */}
-            <div className="w-[1100px] h-screen flex mx-auto my-auto">
-                <div className='border border-gray-400 pt-0 rounded-xl w-full h-fit my-auto  shadow-xl pb-2'>
+
+                <div className='pt-0  w-full h-fit my-auto  pb-2'>
                     <canvas id='myChart2'></canvas>
                 </div>
-            </div>
+
         </>
     )
 }
