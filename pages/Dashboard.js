@@ -55,7 +55,7 @@ export default function readme() {
     <>
       <Navbar />
 
-      <Layout className='h-[80%] px-5 sm:px-5 md:px-[10%] xl:px-[20%] overflow-auto'>
+      <Layout className='h-full px-5 sm:px-5 md:px-[10%] xl:px-[20%] overflow-auto bg-yellow-100'>
         <Header className=' bg-transparent' />
         <Content className='w-full h-full bg-yellow-100 flex justify-center items-center'>
         <div className='w-full h-auto flex'>
@@ -82,7 +82,6 @@ export default function readme() {
                                         <div className=' w-1/2 flex items-center justify-end text-center '>
                                             <div className=' bg-gray-400 rounded-lg p-1 font-itim'>
                                                 <Link className='px-5 hover:text-white' id={survey.Survey_ID} onClick={handleEdit} href="/Edit">แก้ไข</Link>
-                                                <Link className='px-5 hover:text-white ' id={survey.Survey_ID} onClick={handleDelete} href="#">ลบ</Link>
                                             </div>
                                         </div>
                                     </div>
