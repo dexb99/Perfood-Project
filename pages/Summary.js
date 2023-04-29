@@ -141,7 +141,7 @@ export default function Summary() {
                 </Content>
                 <Footer className='bg-yellow-600  h-[15%] item-center px- flex'>
                     <div className='justify-start w-1/2 flex items-center  main-font'>
-                        <Link className=' w-auto items-center flex justify-start' href="/Playgame">
+                        <Link className=' w-auto items-center flex justify-start' href="/">
                             <button onClick={handleReset} type="button" className="text-white bg-gradient-to-br from-yellow-400 to-orange-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-yellow-200 dark:focus:ring-yellow-800 font-medium rounded-lg text-base px-6 py-3.5 text-center mr-2 mb-2">
                                 เล่นอีกครั้ง
                             </button>
