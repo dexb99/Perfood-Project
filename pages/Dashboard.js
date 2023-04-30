@@ -76,16 +76,16 @@ export default function Dashboard() {
       <Layout className='h-full px-5 sm:px-5 md:px-[10%] xl:px-[20%] overflow-auto bg-yellow-100'>
         <Header className=' bg-transparent' />
         <Content className='w-full h-full bg-yellow-100 flex justify-center items-center'>
-        <div className='w-full h-auto flex'>
+        <Row className='w-full h-auto flex'>
             {/* <Table1/> */}
-          <div className='w-1/2 flex justify-center'>
+          <Col className='w-full flex justify-center md:w-1/2 sm:w-1/2'>
         <Donut />
-        </div >
-        <div className='w-1/2 flex justify-center'>
+        </Col >
+        <Col className='w-full flex justify-center  md:w-1/2 sm:w-1/2'>
         <Barchart /> 
-        </div>
+        </Col>
         
-        </div>   
+        </Row>   
         </Content>
         <Content className=' h-[80%] sm:p-1 md:p-[2%] xl:p-[4%] '>
                         <div className='h-auto'>

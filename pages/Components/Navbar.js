@@ -72,7 +72,7 @@ export default function Navbar() {
                 {/* Profile dropdown */}
                 <Menu as="div" className="relative ml-3">
                   <div>
-                    <Menu.Button className="flex  bg-honeydew-100 justify-center items-center rounded-full border-none h-[30px] w-[30px] text-sm focus:outline-none focus:ring-2 focus:ring-yellow-100 focus:ring-offset-2 ">
+                    <Menu.Button className="flex  bg-yellow-100 justify-center items-center rounded-full border-none h-[30px] w-[30px] text-sm focus:outline-none focus:ring-2 focus:ring-yellow-100 focus:ring-offset-2 ">
                       <span className="sr-only">Open user menu</span>
                       <img
                         className="h-8 w-8 rounded-full"
