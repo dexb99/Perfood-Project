@@ -6,9 +6,9 @@ import UserNavbar from './Components/userNavbar';
 import Navbar from './Components/Navbar';
 import Link from 'next/link';
 import Table1 from './Components/Table';
-import Donut from './Components/Donutchart';
 import Barchart from './Components/Barchart';
 import surveyList from './Components/surveyList';
+import NumBer from './Components/NumBer'
 import { Switch } from 'antd';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
@@ -76,9 +76,10 @@ export default function Dashboard() {
         <Content className='w-full h-full bg-yellow-100 flex justify-center items-center'>
         <Row className='w-full h-auto flex'>
             {/* <Table1/> */}
-          <Col className='w-full flex justify-center md:w-1/2 sm:w-1/2'>
-        <Donut />
-        </Col >
+
+        <Col className='w-full flex justify-center  md:w-1/2 sm:w-1/2'>
+        <NumBer />
+        </Col>
         <Col className='w-full flex justify-center  md:w-1/2 sm:w-1/2'>
         <Barchart /> 
         </Col>
