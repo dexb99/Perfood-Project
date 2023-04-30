@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 28, 2023 at 03:14 PM
+-- Generation Time: Apr 30, 2023 at 06:26 PM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 8.0.8
 
@@ -58,7 +58,7 @@ CREATE TABLE `choice` (
 --
 
 INSERT INTO `choice` (`Choice_ID`, `Choice_text`, `Choice_Score`, `Question_ID`) VALUES
-('CH1_A', 'ต้องการได้รับประทานอาหารท้องถิ่นที่ชื่นชอบ', 1, 1),
+('CH1_A', 'ต้องการได้รับประทานอาหารท้องถิ่นที่ชื่น', 1, 1),
 ('CH1_B', 'ต้องการพักผ่อน และสัมผัสบรรยากาศ/วิถีชีวิตวัฒนธรรมท้องถิ่น', 2, 1),
 ('CH1_C', 'ต้องการร่วมกิจกรรมการท่องเที่ยวชองชุมชนท้องถิ่น', 3, 1),
 ('CH1_D', 'ต้องการร่วมกิจกรรมของชุมชน และรับประทานอาหารท้องถิ่น', 4, 1),
@@ -110,6 +110,17 @@ INSERT INTO `choice` (`Choice_ID`, `Choice_text`, `Choice_Score`, `Question_ID`)
 -- --------------------------------------------------------
 
 --
+-- Stand-in structure for view `num_personal`
+-- (See below for the actual view)
+--
+CREATE TABLE `num_personal` (
+`Personal_Name` varchar(30)
+,`Number` bigint(21)
+);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `personal`
 --
 
@@ -127,7 +138,7 @@ CREATE TABLE `personal` (
 --
 
 INSERT INTO `personal` (`Personal_ID`, `Personal_Name`, `Personal_Detail`, `Personal_IMG`, `Threshold`, `Suggest_IMG`) VALUES
-('PER_1', 'Big', 'กินอร่อย นอนอุ่นแบบ ', 'image_personal1.png', 12, ''),
+('PER_1', 'Big Eater', 'adfsdf', 'image_personal1.png', 12, ''),
 ('PER_2', 'Shrugger', 'lorem', 'image_personal2.png', 24, ''),
 ('PER_3', 'Activist', 'lorem', 'image_personal3.png', 36, ''),
 ('PER_4', 'Super Taster', 'lorem', 'image_personal4.png', 48, '');
@@ -181,29 +192,162 @@ CREATE TABLE `question_score` (
 --
 
 INSERT INTO `question_score` (`Score_ID`, `Response_ID`, `Question_ID`, `Choice_ID`, `Question_Score`) VALUES
-(1, 2, 1, 'CH1_C', 3),
-(2, 2, 2, 'CH2_C', 3),
-(3, 2, 5, 'CH5_B', 2),
-(4, 2, 6, 'CH6_B', 2),
-(5, 2, 3, 'CH3_B', 2),
-(6, 2, 4, 'CH4_A', 1),
-(7, 2, 7, 'CH7_B', 2),
-(8, 2, 8, 'CH8_D', 4),
-(9, 2, 9, 'CH9_D', 4),
-(10, 2, 10, 'CH10_B', 2),
-(11, 2, 11, 'CH11_A', 1),
-(12, 2, 12, 'CH12_B', 2),
-(13, 7, 1, 'CH1_A', 1),
-(14, 7, 2, 'CH2_B', 2),
-(15, 7, 3, 'CH3_B', 2),
-(16, 7, 4, 'CH4_B', 2),
-(17, 7, 5, 'CH5_B', 2),
-(18, 7, 6, 'CH6_B', 2),
-(19, 7, 7, 'CH7_B', 2),
-(20, 7, 8, 'CH8_B', 2),
-(21, 7, 9, 'CH9_C', 3),
-(22, 7, 11, 'CH11_B', 2),
-(23, 7, 12, 'CH12_C', 3);
+(24, 29, 1, 'CH1_A', 1),
+(25, 29, 7, 'CH7_C', 3),
+(26, 29, 2, 'CH2_D', 4),
+(27, 29, 8, 'CH8_B', 2),
+(28, 29, 10, 'CH10_A', 1),
+(29, 29, 9, 'CH9_D', 4),
+(30, 29, 11, 'CH11_B', 2),
+(31, 29, 12, 'CH12_C', 3),
+(32, 29, 3, 'CH3_B', 2),
+(33, 29, 4, 'CH4_A', 1),
+(34, 29, 5, 'CH5_D', 4),
+(35, 29, 6, 'CH6_D', 4),
+(36, 35, 2, 'CH2_A', 1),
+(37, 35, 1, 'CH1_A', 1),
+(38, 35, 12, 'CH12_A', 1),
+(39, 35, 3, 'CH3_A', 1),
+(40, 35, 4, 'CH4_A', 1),
+(41, 35, 5, 'CH5_A', 1),
+(42, 35, 6, 'CH6_A', 1),
+(43, 35, 7, 'CH7_A', 1),
+(44, 35, 8, 'CH8_A', 1),
+(45, 35, 11, 'CH11_A', 1),
+(46, 35, 10, 'CH10_A', 1),
+(47, 35, 9, 'CH9_A', 1),
+(48, 42, 1, 'CH1_D', 4),
+(49, 42, 3, 'CH3_B', 2),
+(50, 42, 2, 'CH2_B', 2),
+(51, 42, 4, 'CH4_D', 4),
+(52, 42, 5, 'CH5_D', 4),
+(53, 42, 6, 'CH6_B', 2),
+(54, 42, 7, 'CH7_C', 3),
+(55, 42, 8, 'CH8_B', 2),
+(56, 42, 12, 'CH12_A', 1),
+(57, 42, 11, 'CH11_C', 3),
+(58, 42, 10, 'CH10_B', 2),
+(59, 42, 9, 'CH9_B', 2),
+(60, 44, 1, 'CH1_A', 1),
+(61, 44, 7, 'CH7_A', 1),
+(62, 44, 2, 'CH2_A', 1),
+(63, 44, 8, 'CH8_A', 1),
+(64, 44, 9, 'CH9_A', 1),
+(65, 44, 10, 'CH10_A', 1),
+(66, 44, 11, 'CH11_A', 1),
+(67, 44, 3, 'CH3_A', 1),
+(68, 44, 12, 'CH12_D', 4),
+(69, 44, 4, 'CH4_A', 1),
+(70, 44, 5, 'CH5_A', 1),
+(71, 44, 6, 'CH6_A', 1),
+(72, 45, 1, 'CH1_D', 4),
+(73, 45, 5, 'CH5_D', 4),
+(74, 45, 2, 'CH2_D', 4),
+(75, 45, 3, 'CH3_D', 4),
+(76, 45, 9, 'CH9_D', 4),
+(77, 45, 10, 'CH10_D', 4),
+(78, 45, 11, 'CH11_D', 4),
+(79, 45, 12, 'CH12_D', 4),
+(80, 45, 4, 'CH4_D', 4),
+(81, 45, 8, 'CH8_D', 4),
+(82, 45, 7, 'CH7_D', 4),
+(83, 45, 6, 'CH6_D', 4),
+(84, 46, 1, 'CH1_C', 3),
+(85, 46, 2, 'CH2_C', 3),
+(86, 46, 3, 'CH3_C', 3),
+(87, 46, 7, 'CH7_C', 3),
+(88, 46, 8, 'CH8_C', 3),
+(89, 46, 12, 'CH12_D', 4),
+(90, 46, 4, 'CH4_C', 3),
+(91, 46, 5, 'CH5_C', 3),
+(92, 46, 11, 'CH11_D', 4),
+(93, 46, 6, 'CH6_C', 3),
+(94, 46, 10, 'CH10_C', 3),
+(95, 46, 9, 'CH9_D', 4),
+(96, 56, 1, 'CH1_D', 4),
+(97, 56, 2, 'CH2_C', 3),
+(98, 56, 4, 'CH4_B', 2),
+(99, 56, 3, 'CH3_D', 4),
+(100, 56, 5, 'CH5_A', 1),
+(101, 56, 6, 'CH6_D', 4),
+(102, 56, 7, 'CH7_C', 3),
+(103, 56, 8, 'CH8_C', 3),
+(104, 56, 9, 'CH9_C', 3),
+(105, 56, 10, 'CH10_A', 1),
+(106, 56, 11, 'CH11_A', 1),
+(107, 56, 12, 'CH12_D', 4),
+(108, 56, 1, 'CH1_D', 4),
+(109, 56, 2, 'CH2_C', 3),
+(110, 56, 3, 'CH3_D', 4),
+(111, 56, 4, 'CH4_B', 2),
+(112, 56, 5, 'CH5_A', 1),
+(113, 56, 6, 'CH6_D', 4),
+(114, 56, 7, 'CH7_C', 3),
+(115, 56, 8, 'CH8_C', 3),
+(116, 56, 9, 'CH9_C', 3),
+(117, 56, 10, 'CH10_A', 1),
+(118, 56, 11, 'CH11_A', 1),
+(119, 56, 12, 'CH12_D', 4),
+(120, 56, 1, 'CH1_D', 4),
+(121, 56, 2, 'CH2_C', 3),
+(122, 56, 3, 'CH3_D', 4),
+(123, 56, 4, 'CH4_B', 2),
+(124, 56, 5, 'CH5_A', 1),
+(125, 56, 6, 'CH6_D', 4),
+(126, 56, 7, 'CH7_C', 3),
+(127, 56, 8, 'CH8_C', 3),
+(128, 56, 9, 'CH9_C', 3),
+(129, 56, 10, 'CH10_A', 1),
+(130, 56, 11, 'CH11_A', 1),
+(131, 56, 12, 'CH12_D', 4),
+(132, 56, 1, 'CH1_D', 4),
+(133, 56, 2, 'CH2_C', 3),
+(134, 56, 3, 'CH3_D', 4),
+(135, 56, 4, 'CH4_B', 2),
+(136, 56, 5, 'CH5_A', 1),
+(137, 56, 6, 'CH6_D', 4),
+(138, 56, 7, 'CH7_C', 3),
+(139, 56, 8, 'CH8_C', 3),
+(140, 56, 9, 'CH9_C', 3),
+(141, 56, 10, 'CH10_A', 1),
+(142, 56, 11, 'CH11_A', 1),
+(143, 56, 12, 'CH12_D', 4),
+(144, 56, 1, 'CH1_D', 4),
+(145, 56, 9, 'CH9_C', 3),
+(146, 56, 2, 'CH2_C', 3),
+(147, 56, 10, 'CH10_A', 1),
+(148, 56, 11, 'CH11_A', 1),
+(149, 56, 12, 'CH12_D', 4),
+(150, 56, 3, 'CH3_D', 4),
+(151, 56, 4, 'CH4_B', 2),
+(152, 56, 5, 'CH5_A', 1),
+(153, 56, 6, 'CH6_D', 4),
+(154, 56, 7, 'CH7_C', 3),
+(155, 56, 8, 'CH8_C', 3),
+(156, 56, 1, 'CH1_D', 4),
+(157, 56, 2, 'CH2_C', 3),
+(158, 56, 3, 'CH3_D', 4),
+(159, 56, 4, 'CH4_B', 2),
+(160, 56, 5, 'CH5_A', 1),
+(161, 56, 6, 'CH6_D', 4),
+(162, 56, 7, 'CH7_C', 3),
+(163, 56, 8, 'CH8_C', 3),
+(164, 56, 9, 'CH9_C', 3),
+(165, 56, 10, 'CH10_A', 1),
+(166, 56, 11, 'CH11_A', 1),
+(167, 56, 12, 'CH12_D', 4),
+(168, 56, 1, 'CH1_D', 4),
+(169, 56, 2, 'CH2_C', 3),
+(170, 56, 3, 'CH3_D', 4),
+(171, 56, 4, 'CH4_B', 2),
+(172, 56, 5, 'CH5_A', 1),
+(173, 56, 6, 'CH6_D', 4),
+(174, 56, 7, 'CH7_C', 3),
+(175, 56, 8, 'CH8_C', 3),
+(176, 56, 9, 'CH9_C', 3),
+(177, 56, 10, 'CH10_A', 1),
+(178, 56, 11, 'CH11_A', 1),
+(179, 56, 12, 'CH12_D', 4);
 
 -- --------------------------------------------------------
 
@@ -223,13 +367,28 @@ CREATE TABLE `response` (
 --
 
 INSERT INTO `response` (`Response_ID`, `Survey_ID`, `TimeStamp`, `User_Rate`) VALUES
-(1, 'SVY_01', '2023-04-28 07:39:26', 0),
-(2, 'SVY_01', '2023-04-28 07:41:24', 3),
-(3, 'SVY_01', '2023-04-28 08:43:24', 0),
-(4, 'SVY_01', '2023-04-28 08:45:08', 0),
-(5, 'SVY_01', '2023-04-28 08:47:08', 0),
-(6, 'SVY_01', '2023-04-28 08:47:39', 0),
-(7, 'SVY_01', '2023-04-28 08:59:51', 4);
+(47, 'SVY_01', '2023-04-30 12:58:04', 0),
+(48, 'SVY_01', '2023-04-30 12:58:34', 0),
+(49, 'SVY_01', '2023-04-30 13:07:18', 0),
+(50, 'SVY_01', '2023-04-30 13:07:18', 0),
+(51, 'SVY_01', '2023-04-30 13:07:18', 0),
+(52, 'SVY_01', '2023-04-30 13:07:23', 0),
+(53, 'SVY_01', '2023-04-30 13:07:30', 0),
+(54, 'SVY_01', '2023-04-30 13:16:11', 0),
+(55, 'SVY_01', '2023-04-30 13:18:26', 0),
+(56, 'SVY_01', '2023-04-30 13:40:47', 5);
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `response_result`
+-- (See below for the actual view)
+--
+CREATE TABLE `response_result` (
+`Response_ID` int(30)
+,`resultScore` int(20)
+,`Personal_Name` varchar(30)
+);
 
 -- --------------------------------------------------------
 
@@ -249,8 +408,19 @@ CREATE TABLE `result` (
 --
 
 INSERT INTO `result` (`id`, `Response_ID`, `resultScore`, `Personal_ID`) VALUES
-(1, 2, 28, 'PER_1'),
-(2, 7, 23, 'PER_1');
+(1, 29, 31, 'PER_3'),
+(2, 35, 12, 'PER_1'),
+(3, 42, 31, 'PER_3'),
+(4, 44, 15, 'PER_2'),
+(5, 45, 48, 'PER_4'),
+(6, 46, 39, 'PER_4'),
+(7, 56, 33, 'PER_3'),
+(8, 56, 33, 'PER_3'),
+(9, 56, 33, 'PER_3'),
+(10, 56, 33, 'PER_3'),
+(11, 56, 33, 'PER_3'),
+(12, 56, 33, 'PER_3'),
+(13, 56, 33, 'PER_3');
 
 -- --------------------------------------------------------
 
@@ -260,15 +430,34 @@ INSERT INTO `result` (`id`, `Response_ID`, `resultScore`, `Personal_ID`) VALUES
 
 CREATE TABLE `survey` (
   `Survey_ID` varchar(10) COLLATE utf8_unicode_ci NOT NULL COMMENT 'รหัสแบบสอบถาม',
-  `Survey_Name` varchar(50) COLLATE utf8_unicode_ci NOT NULL COMMENT 'ชื่อแบบสอบถาม'
+  `Survey_Name` varchar(255) COLLATE utf8_unicode_ci NOT NULL COMMENT 'ชื่อแบบสอบถาม',
+  `Survey_Status` enum('on','off') CHARACTER SET utf8 NOT NULL DEFAULT 'on' COMMENT 'สถานะแบบสอบถาม'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `survey`
 --
 
-INSERT INTO `survey` (`Survey_ID`, `Survey_Name`) VALUES
-('SVY_01', 'คุณเป็นนักเที่ยวแบบไหนกันน้า');
+INSERT INTO `survey` (`Survey_ID`, `Survey_Name`, `Survey_Status`) VALUES
+('SVY_01', 'แบบสอบถามเพื่อการวิจัย \"การยกระดับการท่องเที่ยวโดยชุมชนเพื่อสร้างประสบการณ์ของนักท่องเที่ยวตาม บุคลักษณ์ของนักท่องเที่ยวเชิงอาหาร ในอำเภอเชียงคาน จังหวัดเลย\"', 'on');
+
+-- --------------------------------------------------------
+
+--
+-- Structure for view `num_personal`
+--
+DROP TABLE IF EXISTS `num_personal`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `num_personal`  AS SELECT `response_result`.`Personal_Name` AS `Personal_Name`, count(0) AS `Number` FROM `response_result` GROUP BY `response_result`.`Personal_Name` ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure for view `response_result`
+--
+DROP TABLE IF EXISTS `response_result`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `response_result`  AS SELECT `result`.`Response_ID` AS `Response_ID`, `result`.`resultScore` AS `resultScore`, `personal`.`Personal_Name` AS `Personal_Name` FROM (`result` join `personal` on(`result`.`Personal_ID` = `personal`.`Personal_ID`)) ;
 
 --
 -- Indexes for dumped tables
@@ -344,19 +533,19 @@ ALTER TABLE `question`
 -- AUTO_INCREMENT for table `question_score`
 --
 ALTER TABLE `question_score`
-  MODIFY `Score_ID` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `Score_ID` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=180;
 
 --
 -- AUTO_INCREMENT for table `response`
 --
 ALTER TABLE `response`
-  MODIFY `Response_ID` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `Response_ID` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
 
 --
 -- AUTO_INCREMENT for table `result`
 --
 ALTER TABLE `result`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- Constraints for dumped tables
