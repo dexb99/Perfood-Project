@@ -6,6 +6,7 @@ const multer = require('multer');
 const path = require('path');
 const cookieSession = require('cookie-session');
 const { send } = require('process');
+const { result } = require('lodash');
 app.use(cors());
 app.use(express.json());
 app.use(express.static('uploads'))
@@ -241,6 +242,19 @@ app.put('/updatechoice', (req, res) => {
 
 })
 
+app.get('/getBarchart',(req,res)=>{
+    db.query("SELECT * FROM num_personal",(err,result)=>{
+        if(err){
+            console.log(err)
+        }else{
+            const chartData = result.map(row=>({
+                label:row.Personal_Name,
+                value:row.Number
+            }))
+            res.send(chartData)
+        }
+    })
+})
 
 app.get('/getSurvey', (req, res) => {
     db.query("SELECT * FROM survey", (err, result) => {

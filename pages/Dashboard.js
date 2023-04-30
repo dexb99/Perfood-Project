@@ -31,7 +31,6 @@ export default function Dashboard() {
         })
         console.log(newStatus)
     };
-
     const handleEdit = (event) => {
         console.log('hello')
         const PersonalID = [{
