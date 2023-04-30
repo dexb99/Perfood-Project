@@ -52,6 +52,7 @@ export default function CreatePersonal() {
                     .catch(err => console.log(err));
             }
         })
+        localStorage.clear();
     }
     return (
         <div>

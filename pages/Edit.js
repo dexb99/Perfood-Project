@@ -14,10 +14,11 @@ export default function Edit() {
             localStorage.clear();
         };
     }
-
+    const onSuccess = () => {
+        localStorage.clear();
+    }
     const formRef = useRef(null);
     const handleSubmit = (event) => {
-
         event.preventDefault()
         const data = [];
         const formData = new FormData(formRef.current);
@@ -123,7 +124,7 @@ export default function Edit() {
                             </Button>
                         </div>
                         <div className='p-1'>
-                            <Button href='/Dashboard' className=' font-itim bg-white flex justify-center shadow-[0px_4px_4px_rgba(0,_0,_0,_0.25)] px-6 rounded-lg w-full text-yellow-500  '>
+                            <Button href='/Dashboard' onClick={onSuccess} className=' font-itim bg-white flex justify-center shadow-[0px_4px_4px_rgba(0,_0,_0,_0.25)] px-6 rounded-lg w-full text-yellow-500  '>
                                 เสร็จสิ้น
                             </Button>
                         </div>

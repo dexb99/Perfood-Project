@@ -7,10 +7,6 @@ import Navbar from './Components/Navbar'
 import axios from 'axios';
 import personalByID from './Components/personalByID';
 export default function EditPersonal() {
-    window.onpopstate = function (event) {
-        localStorage.clear();
-    };
-
     const [file, setFile] = useState([]);
     const [filePreview, setFilePreview] = useState([]);
     const personal = personalByID();
@@ -28,6 +24,9 @@ export default function EditPersonal() {
             console.log('pls upload image');
         }
     }
+    const onSucess = () => {
+        localStorage.clear()
+    }
     const handleUpload = () => {
         personal.map(personal => {
             if (file.length === 0) {
@@ -40,6 +39,7 @@ export default function EditPersonal() {
                     console.log(response)
                 })
                 window.location.reload();
+
             } else {
                 const formData = new FormData();
                 formData.append('image', file);
@@ -118,7 +118,7 @@ export default function EditPersonal() {
                                     </Button>
                                 </div>
                                 <div className='p-1'>
-                                    <Button href='/personal' className=' font-itim bg-white flex justify-center shadow-[0px_4px_4px_rgba(0,_0,_0,_0.25)] px-6 rounded-lg w-full text-yellow-500  '>
+                                    <Button href='/personal' onClick={onSucess} className=' font-itim bg-white flex justify-center shadow-[0px_4px_4px_rgba(0,_0,_0,_0.25)] px-6 rounded-lg w-full text-yellow-500  '>
                                         เสร็จสิ้น
                                     </Button>
                                 </div>
