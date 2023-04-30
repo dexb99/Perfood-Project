@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { useState } from 'react';
 import UserNavbar from './Components/userNavbar';
 
-export default function Homepage() {
+export default function Attraction() {
   const { Header, Content, Footer } = Layout;
   // display
       // Set Loading time
