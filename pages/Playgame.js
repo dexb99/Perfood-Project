@@ -2,9 +2,9 @@ import React from 'react'
 import { Layout, Button, Drawer, Modal, Form, Input } from 'antd';
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
-import UserNavbar from '../Components/userNavbar';
+import UserNavbar from './Components/userNavbar';
 import axios from 'axios';
-import surveyList from '../Components/surveyList';
+import surveyList from './Components/surveyList';
 export default function Playgame() {
     const SuveyList = surveyList();
     const [sur, setSur] = useState(`SVY_01`);

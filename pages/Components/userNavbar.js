@@ -53,7 +53,7 @@ export default function UserNavbar() {
                 setLoginStatus(response.data.message);
             } else {
                 setLoginStatus('เข้าสู่ระบบแล้ว กรุณารอสักครู่');
-                router.push('/Admin/Dashboard')
+                router.push('/Dashboard')
 
             }
         })

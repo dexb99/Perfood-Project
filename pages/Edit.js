@@ -4,14 +4,17 @@ import Link from 'next/link';
 import { useState, useRef } from 'react';
 import Navbar from './Components/Navbar'
 import axios from 'axios';
-import questData from '../Components/questData';
-import surveyList from '../Components/surveyList';
+import questData from './Components/questData';
+import surveyList from './Components/surveyList';
 export default function Edit() {
     const question = questData()
     const survey = surveyList()
-    window.onpopstate = function (event) {
-        localStorage.clear();
-    };
+    if (typeof window !== 'undefined') {
+        window.onpopstate = function (event) {
+            localStorage.clear();
+        };
+    }
+
     const formRef = useRef(null);
     const handleSubmit = (event) => {
 

@@ -1,10 +1,10 @@
 import React from 'react'
 import Questions from './Components/Questions';
 import { Layout, Space, Col, Row, Button } from 'antd';
-import questData from '../Components/questData';
+import questData from './Components/questData';
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import UserNavbar from '../Components/userNavbar';
+import UserNavbar from './Components/userNavbar';
 import axios from 'axios';
 export default function questionPage1() {
     const data = questData()
@@ -25,6 +25,13 @@ export default function questionPage1() {
         const defaultRate = JSON.stringify([{ ratingScore: 0 }]);
         localStorage.setItem('rating', defaultRate);
         const quizStr = localStorage.getItem('quiz');
+        if (!quizStr) {
+            // Display modal to the user and redirect to first page
+            alert("You didn't do any question. You will be redirected to the first page.");
+            window.location.replace('/Playgame');
+            localStorage.clear();
+            return;
+        }
         let quiz = [];
         // If the quiz string is not null or undefined, parse it into a JavaScript object
         if (quizStr) {

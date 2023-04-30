@@ -1,11 +1,11 @@
 import { Fragment } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
-import {router} from 'next/router'
+import { router } from 'next/router'
 const navigation = [
   { name: 'Dashboard', href: '/Admin/Dashboard', current: false },
-  { name: 'Personal', href: '/personal', current: false },
-  { name: 'Suggest', href: '/Suggest', current: false },
+  { name: 'Personal', href: '/Admin/personal', current: false },
+  { name: 'Suggest', href: '/Admin/Suggest', current: false },
 
 ]
 
@@ -51,7 +51,7 @@ export default function Navbar() {
                 </div>
                 <div className="hidden sm:ml-6 sm:block">
                   <div className="flex space-x-4">
-                    {navigation.map((item,index) => (
+                    {navigation.map((item, index) => (
                       <a
                         key={item.name}
                         href={item.href}
@@ -72,7 +72,7 @@ export default function Navbar() {
                 {/* Profile dropdown */}
                 <Menu as="div" className="relative ml-3">
                   <div>
-                    <Menu.Button className="flex rounded-full bg-yellow-100 text-sm focus:outline-none focus:ring-2 focus:ring-yellow-100 focus:ring-offset-2 ">
+                    <Menu.Button className="flex  bg-honeydew-100 justify-center items-center rounded-full border-none h-[30px] w-[30px] text-sm focus:outline-none focus:ring-2 focus:ring-yellow-100 focus:ring-offset-2 ">
                       <span className="sr-only">Open user menu</span>
                       <img
                         className="h-8 w-8 rounded-full"
@@ -111,7 +111,7 @@ export default function Navbar() {
 
           <Disclosure.Panel className="sm:hidden">
             <div className="space-y-1 px-2 pt-2 pb-3">
-              {navigation.map((item,index) => (
+              {navigation.map((item, index) => (
                 <Disclosure.Button
                   key={item.name}
                   as="a"

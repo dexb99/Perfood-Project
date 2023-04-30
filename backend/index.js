@@ -27,8 +27,17 @@ const db = mysql.createConnection({
     database: "perfood"
 });
 
-
-
+app.put('/updateStatus/:id', (req, res) => {
+    const id = req.params.id;
+    const status = req.body.status;
+    db.query('UPDATE survey SET Survey_Status=? WHERE Survey_ID = ?', [status, id], (err, result) => {
+        if (err) {
+            console.log(err);
+        } else {
+            res.send(result)
+        }
+    });
+});
 
 app.post('/upload', upload.single('image'), (req, res) => {
     const image = req.file.filename;
@@ -205,7 +214,7 @@ app.put('/updatesurvey', (req, res) => {
         } else {
             // console.log(result)
         }
-    }) 
+    })
 })
 app.put('/updatequestion', (req, res) => {
     const questionid = req.body.questionid

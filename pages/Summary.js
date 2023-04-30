@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { Layout, Space, Col, Row, Button, Radio, Modal, Form, Input } from 'antd';
 import { useState } from 'react';
 import Link from 'next/link';
-import UserNavbar from '../Components/userNavbar';
+import UserNavbar from './Components/userNavbar';
 import { FrownOutlined, MehOutlined, SmileOutlined } from '@ant-design/icons';
 import { Rate } from 'antd';
 import axios from 'axios';

@@ -3,7 +3,7 @@ import { Layout, Button, Drawer, Modal, Form, Input, Select, InputNumber, messag
 import Link from 'next/link';
 import { useState } from 'react';
 import Navbar from './Components/Navbar'
-import personalData from '../Components/personal_Data';
+import personalData from './Components/personal_Data';
 import axios from 'axios';
 export default function CreatePersonal() {
     const perData = personalData();

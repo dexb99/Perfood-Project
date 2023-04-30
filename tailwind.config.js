@@ -27,5 +27,10 @@ module.exports = {
       smi: "13px",
     },
   },
-  plugins: [require("flowbite/plugin")],
+  plugins: [
+    require("flowbite/plugin")
+  ],
+  corePlugins: {
+    preflight: false
+  }
 };
