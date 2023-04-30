@@ -6,7 +6,7 @@ function Donut() {
         var myChart2 = new Chart(don, {
             type: 'doughnut',
             data: {
-                labels: ["ผู้ที่เข้ามาตอบแบบสอบถาม", "ผู้เข้าชม",],
+                labels: ["label", "label",],
                 datasets: [{
                     data: [70, 10,],
                     borderColor: [

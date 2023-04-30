@@ -239,17 +239,15 @@ app.put('/updatechoice', (req, res) => {
             // console.log('inserted')
         }
     })
-
 })
-
-app.get('/getBarchart',(req,res)=>{
-    db.query("SELECT * FROM num_personal",(err,result)=>{
-        if(err){
+app.get('/getBarchart', (req, res) => {
+    db.query("SELECT * FROM num_personal", (err, result) => {
+        if (err) {
             console.log(err)
-        }else{
-            const chartData = result.map(row=>({
-                label:row.Personal_Name,
-                value:row.Number
+        } else {
+            const chartData = result.map(row => ({
+                label: row.Personal_Name,
+                value: row.Number
             }))
             res.send(chartData)
         }

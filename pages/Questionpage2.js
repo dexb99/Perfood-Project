@@ -5,14 +5,23 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import UserNavbar from './Components/userNavbar';
 import questData from './Components/questData';
-export default function questionPage1() {
+import surveyList from './Components/surveyList';
+export default function questionPage2() {
+    const SurveyList = surveyList();
+    useEffect(() => {
+        SurveyList.map(survey => {
+            if (survey.Survey_Status === "off") {
+                Router.push('/surveyOff')
+            }
+        })
+    })
     const data = questData();
     const questions = data.slice(4, 8)
     const { Footer } = Layout
     const ChceckRadio = () => {
         const quizStr = localStorage.getItem('quiz');
         const jsonquiz = JSON.parse(quizStr)
-        if (!quizStr || jsonquiz.length !== questions.length+4) {
+        if (!quizStr || jsonquiz.length !== questions.length + 4) {
             alert("ขออภัย คุณยังทำแบบสอบถามไม่ครบ");
             return;
         } else {

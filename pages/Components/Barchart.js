@@ -9,18 +9,18 @@ function Barchart() {
             setChartProps(response.data)
         })
         console.log(chartProps)
-    },[])
+    }, [])
     useEffect(() => {
-        const colors = ["rgb(102, 51, 0)","rgb(75, 192, 192)","rgb(255, 205, 86)","rgb(255, 99, 132)"]
-        const backgroundcolor = ["rgb(102, 51, 0,0.5)","rgb(75, 192, 192,0.5)","rgb(255, 205, 86,0.5)","rgb(255, 99, 132,0.5)"]
+        const colors = ["rgb(102, 51, 0)", "rgb(75, 192, 192)", "rgb(255, 205, 86)", "rgb(255, 99, 132)"]
+        const backgroundcolor = ["rgb(102, 51, 0,0.5)", "rgb(75, 192, 192,0.5)", "rgb(255, 205, 86,0.5)", "rgb(255, 99, 132,0.5)"]
         var barc = document.getElementById('myChart1').getContext('2d');
-        const datasets = chartProps.map((item,index)=>{
-            return{
-                data:[item.value],
-                label:[item.label],
-                borderColor:colors[index],
-                backgroundcolor:backgroundcolor[index],
-                borderWidth:2,
+        const datasets = chartProps.map((item, index) => {
+            return {
+                data: [item.value],
+                label: [item.label],
+                borderColor: colors[index],
+                backgroundColor: backgroundcolor[index],
+                borderWidth: 1,
             }
         })
         var myChart1 = new Chart(barc, {
@@ -30,7 +30,7 @@ function Barchart() {
                 datasets: datasets,
             },
         });
-    }, [])
+    }, [chartProps])
     return (
         <>
             {/* Bar chart */}

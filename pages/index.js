@@ -5,7 +5,8 @@ import { useState, useEffect } from 'react';
 import UserNavbar from './Components/userNavbar';
 import axios from 'axios';
 import surveyList from './Components/surveyList';
-export default function Playgame() {
+import Router from 'next/router';
+export default function Index() {
   const SuveyList = surveyList();
   const [sur, setSur] = useState(`SVY_01`);
   const beginResponse = () => {
@@ -22,8 +23,16 @@ export default function Playgame() {
     });
   };
   const handdleClick = (surveyID) => {
-    setSur(surveyID);
-    beginResponse();
+    SuveyList.map((survey) => {
+      if (survey.Survey_Status === "off") {
+        Router.push('/surveyOff')
+      } else {
+        setSur(surveyID);
+        beginResponse();
+        Router.push('/Questionpage1')
+      }
+    })
+
   }
 
   const { Header, Content, Footer } = Layout;
@@ -59,8 +68,8 @@ export default function Playgame() {
                     </Link>
                   </div>
                   <div className=' rounded-lg justify-center w-[49%] px-3 flex items-center  foot-font'>
-                    <Link className=' items-center w-auto main-icon flex justify-end' href='/Questionpage1'>
-                      <button onClick={() => handdleClick(survey.Survey_ID)} type="button" className="text-white bg-gradient-to-br border-none from-yellow-500 to-orange-400 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-yellow-200 dark:focus:ring-yellow-800 font-medium rounded-lg text-base px-6 py-3.5 text-center mr-2 mb-2">
+                    <Link onClick={() => handdleClick(survey.Survey_ID)} className=' items-center w-auto main-icon flex justify-end' href='/Questionpage1'>
+                      <button type="button" className="text-white bg-gradient-to-br border-none from-yellow-500 to-orange-400 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-yellow-200 dark:focus:ring-yellow-800 font-medium rounded-lg text-base px-6 py-3.5 text-center mr-2 mb-2">
                         <svg fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                           <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75"></path>
                         </svg>เริ่มกันเลย</button>

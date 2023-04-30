@@ -6,7 +6,16 @@ import UserNavbar from './Components/userNavbar';
 import { FrownOutlined, MehOutlined, SmileOutlined } from '@ant-design/icons';
 import { Rate } from 'antd';
 import axios from 'axios';
+import surveyList from './Components/surveyList';
 export default function Summary() {
+    const SurveyList = surveyList();
+    useEffect(() => {
+        SurveyList.map(survey => {
+            if (survey.Survey_Status === "off") {
+                Router.push('/surveyOff')
+            }
+        })
+    })
     const { Header, Content, Footer } = Layout;
     const [selectedValue, setSelectedValue] = useState(null);
     const [peResult, setPeResult] = useState([]);
@@ -25,19 +34,17 @@ export default function Summary() {
         const ResponseID = JSON.parse(localStorage.getItem('Response'))
         const QuestionData = JSON.parse(localStorage.getItem('quiz'))
         const ResultData = JSON.parse(localStorage.getItem('Result'))
-        const ratingData = JSON.parse(localStorage.getItem('rating'))
+
         ResponseID.map((resid) => {
 
         })
         QuestionData.map((id) => {
-
             axios.post('http://localhost:3001/questscore', {
                 Response_ID: ResponseID[0].Response_ID,
                 Question_ID: id.question_ID,
                 choice_ID: id.choiceID,
                 Question_score: id.question_score
             }).then((response) => {
-
             })
         })
         ResultData.map((id) => {
@@ -49,14 +56,11 @@ export default function Summary() {
 
             })
         })
-        ratingData.map((id) => {
-            axios.put('http://localhost:3001/rating', {
-                Response_ID: ResponseID[0].Response_ID,
-                User_Rate: id.ratingScore
-            }).then((resonse) => {
-            })
-        })
+
     };
+    useEffect(() => {
+        insertData();
+    })
     // Set Loading time
     const [loading, setLoading] = useState(false);
 
@@ -69,14 +73,22 @@ export default function Summary() {
     };
 
     const rateingChange = (value) => {
+        const ResponseID = JSON.parse(localStorage.getItem('Response'))
         const rate = [];
         const newRate = {
             'ratingScore': value
         }
         rate.push(newRate);
-
         const updateRating = JSON.stringify(rate)
         localStorage.setItem('rating', updateRating);
+        const ratingData = JSON.parse(localStorage.getItem('rating'))
+        ratingData.map((id) => {
+            axios.put('http://localhost:3001/rating', {
+                Response_ID: ResponseID[0].Response_ID,
+                User_Rate: id.ratingScore
+            }).then((resonse) => {
+            })
+        })
     }
     useEffect(() => {
         const resultStr = localStorage.getItem('Result');
@@ -95,7 +107,7 @@ export default function Summary() {
             <main className=' h-auto max-h-auto sm:px-[0] md:px-[10%] xl:px-[20%] py-16 '>
                 <Header className='bg-yellow-600  h-[15%] justify-end items-center flex'>
                     <Link className='flex items-center' href="#">
-                        <button onClick={insertData} className="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-base font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-yellow-400 to-orange-600 group-hover:from-yellow-400 group-hover:to-orange-600 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-yellow-200 dark:focus:ring-yellow-800">
+                        <button className="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-base font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-yellow-400 to-orange-600 group-hover:from-yellow-400 group-hover:to-orange-600 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-yellow-200 dark:focus:ring-yellow-800">
                             <span className="relative px-10 py-0 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
                                 ที่เที่ยวที่เหมาะกับคุณ
                             </span>

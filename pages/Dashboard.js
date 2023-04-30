@@ -71,7 +71,6 @@ export default function Dashboard() {
   return (
     <>
       <Navbar />
-
       <Layout className='h-full px-5 sm:px-5 md:px-[10%] xl:px-[20%] overflow-auto bg-yellow-100'>
         <Header className=' bg-transparent' />
         <Content className='w-full h-full bg-yellow-100 flex justify-center items-center'>

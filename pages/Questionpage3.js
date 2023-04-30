@@ -6,7 +6,16 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import UserNavbar from './Components/userNavbar';
 import axios from 'axios';
-export default function questionPage1() {
+import surveyList from './Components/surveyList';
+export default function questionPage3() {
+    const SurveyList = surveyList();
+    useEffect(() => {
+        SurveyList.map(survey => {
+            if (survey.Survey_Status === "off") {
+                Router.push('/surveyOff')
+            }
+        })
+    })
     const data = questData()
     const questions = data.slice(8, 12)
     const { Footer } = Layout

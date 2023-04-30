@@ -5,7 +5,17 @@ import { Layout } from 'antd';
 import Link from 'next/link';
 import UserNavbar from './Components/userNavbar';
 import questData from './Components/questData';
+import surveyList from './Components/surveyList';
+import Router from 'next/router';
 export default function questionPage1() {
+    const SurveyList = surveyList();
+    useEffect(() => {
+        SurveyList.map(survey => {
+            if (survey.Survey_Status === "off") {
+                Router.push('/surveyOff')
+            }
+        })
+    })
     const { Footer } = Layout
     const data = questData();
     // useEffect(()=>{
@@ -28,6 +38,7 @@ export default function questionPage1() {
     const handleClearLocalStorage = () => {
         localStorage.clear();
     }
+
     return (
         <>
             <UserNavbar />
