@@ -7,11 +7,9 @@ import Navbar from './Components/Navbar'
 import axios from 'axios';
 import personalByID from './Components/personalByID';
 export default function EditPersonal() {
-
     window.onpopstate = function (event) {
         localStorage.clear();
     };
-
 
     const [file, setFile] = useState([]);
     const [filePreview, setFilePreview] = useState([]);

@@ -102,7 +102,7 @@ export default function UserNavbar() {
                                     <Menu as="div" className="relative ml-6">
                                         <div className='flex items-center justify-between'>
                                             <div className=" hidden sm:ml-6 sm:block">
-                                                <div className="border-solid flex space-x-4">
+                                                <div className=" flex space-x-4">
                                                     {navigation.map((item) => (
                                                         <a
                                                             key={item.name}
@@ -162,7 +162,7 @@ export default function UserNavbar() {
                         เข้าสู่ระบบ
                     </button>
                     ,
-                    <h1>{loginStatus}</h1>
+                    <div className='font-itim'>{loginStatus}</div>
 
                 ]}
                 onCancel={onClose} open={open}>

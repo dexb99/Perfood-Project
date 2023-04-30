@@ -40,7 +40,7 @@ export default function Playgame() {
                         <div className='h-full '>
                             <Content className='h-[80%] '>
                                 <Content className=' flex justify-center items-center h-full p-5 '>
-                                    <div className='sm:px-0 md:px-[5%] xl:px-[10%] flex justify-center items-center bg-yellow-400 shadow-[0px_4px_4px_rgba(0,_0,_0,_0.25)] px-10 w-auto h-1/2 border-dashed rounded-lg  font-itim bigger-font '>
+                                    <div className='sm:px-0 md:px-[5%] xl:px-[10%] flex justify-center items-center bg-yellow-400 shadow-[0px_4px_4px_rgba(0,_0,_0,_0.25)] px-10 w-auto h-1/2 rounded-lg  font-itim bigger-font '>
                                         <div className='  text-center h-auto w-full'>
                                             {survey.Survey_Name}
 
@@ -50,7 +50,7 @@ export default function Playgame() {
                             </Content>
                             <Footer className='bg-transparent h-[20%] item-center px-10 flex'>
                                 <div className='w-full h-full flex p-3 rounded-lg justify-between'>
-                                    <div className=' border-dashed rounded-lg justify-center w-[49%] px-3 flex items-center  foot-font'>
+                                    <div className='  rounded-lg justify-center w-[49%] px-3 flex items-center  foot-font'>
                                         <Link className=' w-auto items-center flex justify-start' href='/readme'>
                                             <button type="button" className="text-white bg-gradient-to-br from-yellow-500 to-orange-400 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-yellow-200 dark:focus:ring-yellow-800 font-extrabold rounded-lg text-base px-6 py-3.5 text-center mr-2 mb-2">
                                                 <svg fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -58,10 +58,10 @@ export default function Playgame() {
                                                 </svg>Read Me</button>
                                         </Link>
                                     </div>
-                                    <div className=' border-dashed rounded-lg justify-center w-[49%] px-3 flex items-center  foot-font'>
+                                    <div className='  rounded-lg justify-center w-[49%] px-3 flex items-center  foot-font'>
                                         <Link className=' items-center w-auto main-icon flex justify-end' href='/Questionpage1'>
                                             <button onClick={() => handdleClick(survey.Survey_ID)} type="button" className="text-white bg-gradient-to-br from-yellow-500 to-orange-400 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-yellow-200 dark:focus:ring-yellow-800 font-medium rounded-lg text-base px-6 py-3.5 text-center mr-2 mb-2">
-                                                <svg fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                                <svg fill="none" stroke="currentColor" strokeWidth="0.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                                                     <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75"></path>
                                                 </svg>เริ่มกันเลย</button>
                                         </Link>

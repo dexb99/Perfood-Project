@@ -23,11 +23,11 @@ export default function Personal() {
                             </Button>
                         </div>
                     </Header>
-                    <Content className='border-solid h-[80%] sm:p-1 md:p-[2%] xl:p-[4%] '>
-                        <div className='border-solid border-2'>
+                    <Content className=' h-[80%] sm:p-1 md:p-[2%] xl:p-[4%] '>
+                        <div className=''>
                             <div className='text-center font-itim main-font font-bold max-sm:text-base bg-yellow-400 shadow-[0px_4px_4px_rgba(0,_0,_0,_0.25)]'>รายการบุคลักษณ์</div>
                             {person.map((personal, index) => (
-                                <div key={index} className='p-3 border-solid '>
+                                <div key={index} className='p-3  '>
                                     <div className='m-1 bg-white shadow-[0px_4px_4px_rgba(0,_0,_0,_0.25)] flex px-6 py-3  rounded-lg'>
                                         <div className=' w-1/2 text-start font-itim text-yellow-500'>
                                             {personal.Personal_Name}

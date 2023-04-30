@@ -18,7 +18,7 @@ export default function Homepage() {
               <div className='text-center font-itim bigger-font '>
                 <div
                   style={{ backgroundImage: "url('/line3.png')", backgroundRepeat: "no-repeat", backgroundPosition: "center", backgroundSize: "220% 400%" }}
-                  className='sm:px-0 md:px-[5%] xl:px-[10%] flex justify-center items-center bg-yellow-400 shadow-[0px_4px_4px_rgba(0,_0,_0,_0.25)] px-10 w-auto h-1/2 border-dashed rounded-lg  font-itim bigger-font '>
+                  className='sm:px-0 md:px-[5%] xl:px-[10%] flex justify-center items-center bg-yellow-400 shadow-[0px_4px_4px_rgba(0,_0,_0,_0.25)] px-10 w-auto h-1/2 rounded-lg  font-itim bigger-font '>
                   <div>
                     Welcome to Perfood เชียงคาน
                   </div>
@@ -28,7 +28,7 @@ export default function Homepage() {
           </Content>
           <Footer className='bg-transparent h-[20%] item-center px-10 flex'>
             <div className='justify-center w-full flex  items-center  foot-font'>
-              <div className=' border-dashed rounded-lg justify-center w-[49%] px-3 flex items-center  foot-font'>
+              <div className='  rounded-lg justify-center w-[49%] px-3 flex items-center  foot-font'>
                 <Link className=' items-center w-auto main-icon flex justify-center ' href="/Playgame">
                   <button type="button" className="text-white bg-gradient-to-br from-yellow-500 to-orange-400 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-yellow-200 dark:focus:ring-yellow-800 font-extrabold rounded-lg text-base px-6 py-3.5 text-center mr-2 mb-2 inline-flex">
                     <svg className="w-10 h-10 mr-5 -ml-1" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">

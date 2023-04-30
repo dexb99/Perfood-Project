@@ -4,7 +4,6 @@ import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { shuffle } from 'lodash';
 export default function Qstructure({ question }) {
-    console.log(question)
     const { Header, Content, Footer } = Layout;
     const [selectedValue, setSelectedValue] = useState(0);
     const [score, setScore] = useState(0);
@@ -18,7 +17,6 @@ export default function Qstructure({ question }) {
         setSelectedValue(event.target.value);
         setSelectedID(event.target.name);
         const quizStr = localStorage.getItem('quiz');
-        console.log(event.target.id);
         let quiz = [];
         // If the quiz string is not null or undefined, parse it into a JavaScript object
         if (quizStr) {
