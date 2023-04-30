@@ -92,7 +92,7 @@ export default function Summary() {
     return (
         <>
             <UserNavbar />
-            <main className=' h-screen max-h-screen sm:px-[0] md:px-[10%] xl:px-[20%] py-16 '>
+            <main className=' h-auto max-h-auto sm:px-[0] md:px-[10%] xl:px-[20%] py-16 '>
                 <Header className='bg-yellow-600  h-[15%] justify-end items-center flex'>
                     <Link className='flex items-center' href="#">
                         <button onClick={insertData} className="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-base font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-yellow-400 to-orange-600 group-hover:from-yellow-400 group-hover:to-orange-600 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-yellow-200 dark:focus:ring-yellow-800">
@@ -117,14 +117,16 @@ export default function Summary() {
                                         <div key={index} className='text-black text-center bigger-font'>
                                             {result.Personal_Name}
                                         </div>
-                                        <img src='' />
+                                        <div className='justify-center items-center  flex h-full'>
+                                        <img className='w-[50%] h-{50%]' src={`http://localhost:3001/images/${result.Personal_IMG}`}/>
+                                        </div>
                                     </div>
                                 ))
                             }
                         </Row>
                     </Content>
                     <Content className='h-[40%] '>
-                        <div className=' h-1/2 bg-yellow-500 justify-center text-center items-center flex foot-font'>
+                        <div className=' h-1/2 bg-yellow-500 justify-center text-center items-center flex foot-font text-white'>
                             คำตอบของเราถูกใจท่านหรือไม่
                         </div>
                         <div className='p-9 px-10  h-1/2 bg-yellow-100 justify-between items-center flex'>
@@ -138,7 +140,7 @@ export default function Summary() {
                 </Content>
                 <Footer className='bg-yellow-600  h-[15%] item-center px- flex'>
                     <div className='justify-start w-1/2 flex items-center  main-font'>
-                        <Link className=' w-auto items-center flex justify-start' href="/Playgame">
+                        <Link className=' w-auto items-center flex justify-start' href="/">
                             <button onClick={handleReset} type="button" className="text-white bg-gradient-to-br from-yellow-400 to-orange-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-yellow-200 dark:focus:ring-yellow-800 font-medium rounded-lg text-base px-6 py-3.5 text-center mr-2 mb-2">
                                 เล่นอีกครั้ง
                             </button>
