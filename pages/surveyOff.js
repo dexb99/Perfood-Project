@@ -40,8 +40,7 @@ export default function Playgame() {
                         <div className='h-full '>
                             <Content className='h-[80%] '>
                                 <Content className=' flex justify-center items-center h-full p-5 '>
-                                    <div style={{ backgroundImage: "url('/line3.png')", backgroundRepeat: "no-repeat", backgroundPosition: "center", backgroundSize: "220% 400%" }}
-                                        className='sm:px-0 md:px-[5%] xl:px-[10%] flex justify-center items-center bg-yellow-900 shadow-[0px_4px_4px_rgba(0,_0,_0,_0.25)] px-10 w-auto h-1/2 rounded-lg  font-itim minifoot-font '>
+                                    <div className='sm:px-0 md:px-[5%] xl:px-[10%] flex justify-center items-center bg-yellow-500 shadow-[0px_4px_4px_rgba(0,_0,_0,_0.25)] px-10 w-auto h-1/2 rounded-lg  font-itim minifoot-font border-solid border-yellow-900 border-10 '>
                                         <div className='  text-center h-auto w-full text-white'>
                                             กราบขออภัย Survey นี้ไม่พร้อมให้ใช้บริการ
                                         </div>
