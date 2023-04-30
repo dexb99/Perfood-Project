@@ -1,9 +1,8 @@
 import React from 'react';
-import { Col, Row, Image, Button, Layout, Drawer } from 'antd';
+import { Col, Row, Image, Button, Layout, Drawer,Tooltip } from 'antd';
 import { Chart } from "chart.js";
 import personalData from './Components/personal_Data';
 import UserNavbar from './Components/userNavbar';
-import { useState } from 'react';
 import Navbar from './Components/Navbar';
 import Link from 'next/link';
 import Table1 from './Components/Table';
@@ -88,9 +87,8 @@ export default function Dashboard() {
         
         </div>   
         </Content>
-        <Content className='border-solid  h-[80%] sm:p-1 md:p-[2%] xl:p-[4%] '>
-                        <div className='border-solid border-2 '>
-
+        <Content className=' h-[80%] sm:p-1 md:p-[2%] xl:p-[4%] '>
+                        <div className='h-auto'>
                             <div className='text-center font-itim main-font font-bold max-sm:text-base bg-yellow-400 shadow-[0px_4px_4px_rgba(0,_0,_0,_0.25)]'>รายการแบบสอบถาม</div>
                             {survey.map((survey, index) => (
                                 <div key={index} className='p-3'>

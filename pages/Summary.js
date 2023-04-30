@@ -9,7 +9,6 @@ import axios from 'axios';
 export default function Summary() {
     const { Header, Content, Footer } = Layout;
     const [selectedValue, setSelectedValue] = useState(null);
-    const [rating, setRateing] = useState(0);
     const [peResult, setPeResult] = useState([]);
     const [clicked, setClicked] = useState(false);
     const customIcons = {
@@ -28,17 +27,17 @@ export default function Summary() {
         const ResultData = JSON.parse(localStorage.getItem('Result'))
         const ratingData = JSON.parse(localStorage.getItem('rating'))
         ResponseID.map((resid) => {
-            
+
         })
         QuestionData.map((id) => {
-            
+
             axios.post('http://localhost:3001/questscore', {
                 Response_ID: ResponseID[0].Response_ID,
                 Question_ID: id.question_ID,
                 choice_ID: id.choiceID,
                 Question_score: id.question_score
             }).then((response) => {
-                
+
             })
         })
         ResultData.map((id) => {
@@ -47,12 +46,14 @@ export default function Summary() {
                 Personal_ID: id.Personal_ID,
                 Resultscore: id.totalscore
             }).then((resonse) => {
-                
+
             })
         })
         ratingData.map((id) => {
-            axios.put('http://localhost:3001/rating', { Response_ID: ResponseID[0].Response_ID, User_Rate: id.ratingScore }).then((resonse) => {
-                
+            axios.put('http://localhost:3001/rating', {
+                Response_ID: ResponseID[0].Response_ID,
+                User_Rate: id.ratingScore
+            }).then((resonse) => {
             })
         })
     };
@@ -68,7 +69,6 @@ export default function Summary() {
     };
 
     const rateingChange = (value) => {
-        setRateing(value);
         const rate = [];
         const newRate = {
             'ratingScore': value
@@ -118,7 +118,7 @@ export default function Summary() {
                                             {result.Personal_Name}
                                         </div>
                                         <div className='justify-center items-center  flex h-full'>
-                                        <img className='w-[50%] h-{50%]' src={`http://localhost:3001/images/${result.Personal_IMG}`}/>
+                                            <img className='w-[50%] h-{50%]' src={`http://localhost:3001/images/${result.Personal_IMG}`} />
                                         </div>
                                     </div>
                                 ))
@@ -141,14 +141,14 @@ export default function Summary() {
                 <Footer className='bg-yellow-600  h-[15%] item-center px- flex'>
                     <div className='justify-start w-1/2 flex items-center  main-font'>
                         <Link className=' w-auto items-center flex justify-start' href="/">
-                            <button onClick={handleReset} type="button" className="text-white bg-gradient-to-br from-yellow-400 to-orange-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-yellow-200 dark:focus:ring-yellow-800 font-medium rounded-lg text-base px-6 py-3.5 text-center mr-2 mb-2">
+                            <button onClick={handleReset} type="button" className="border-none text-white bg-gradient-to-br from-yellow-400 to-orange-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-yellow-200 dark:focus:ring-yellow-800 font-medium rounded-lg text-base px-6 py-3.5 text-center mr-2 mb-2">
                                 เล่นอีกครั้ง
                             </button>
                         </Link>
                     </div>
                     <div className=' justify-end w-1/2 flex items-center  main-font'>
                         <Link className='  items-center w-auto flex justify-end' onClick={showModal} href="">
-                            <button type="button" className="text-white bg-gradient-to-br from-yellow-400 to-orange-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-yellow-200 dark:focus:ring-yellow-800 font-medium rounded-lg text-base px-6 py-3.5 text-center mr-2 mb-2">
+                            <button type="button" className="text-white bg-gradient-to-br border-none from-yellow-400 to-orange-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-yellow-200 dark:focus:ring-yellow-800 font-medium rounded-lg text-base px-6 py-3.5 text-center mr-2 mb-2">
                                 แชร์
                             </button>
                         </Link>

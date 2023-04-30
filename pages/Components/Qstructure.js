@@ -71,7 +71,7 @@ export default function Qstructure({ question }) {
                         {choices.map((choice, index) => (
                             <div key={index} className='flex justify-start w-full pb-[1%]  shadow-[0px_1px_1px_rgba(0,_0,_0,_0.25)]'>
                                 <Radio.Group value={selectedValue} onChange={handleChange} className=' w-full flex justify-center text-left p-1'>
-                                    <Radio required  value={choice.score} id={choice.choiceID}  className=' text-left w-full h-full radio-font justify-start flex items-center overflow-auto'>
+                                    <Radio required value={choice.score} id={choice.choiceID} className=' text-white text-left w-full h-full radio-font justify-start flex items-center overflow-auto'>
                                         {choice.choiceText}
                                     </Radio>
                                 </Radio.Group>
