@@ -7,7 +7,7 @@ body {
 }
 .minifoot-font{
   font-family: Itim;
-  font-size: clamp(0.75rem, 3.5rem, 2.0rem);
+  font-size: clamp(0.75rem, 3.5vw, 2.0rem);
 }
 .radio-font{
   font-family: Itim;
@@ -37,7 +37,7 @@ body {
 .img-button{
   border: none;
   padding: 0;
-  width: 5vw;
+  width: 5vw; 
   height:5vw;
 }
 .img-button img{
