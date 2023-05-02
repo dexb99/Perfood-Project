@@ -1,6 +1,6 @@
 import React from 'react'
 import { PlayCircleFilled, FileOutlined } from '@ant-design/icons'
-import { Layout, Button, Drawer, Modal, Form, Input } from 'antd';
+import { Layout, Button, Drawer, Modal, Form, Input, Row, Col } from 'antd';
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import UserNavbar from './Components/userNavbar';
@@ -36,8 +36,8 @@ export default function Attractions() {
             <UserNavbar />
             <main className=" bg-cover h-auto sm:px-5 md:px-[10%] xl:px-[20%] py-16">
                 <Layout className="h-full w-full bg-yellow-100">
-                    <Header className=' bg-transparent h-[10%] justify-center items-center flex'>
-                        <div className=' font-itim bigger-font'>
+                    <Header className=' bg-transparent h-[10%] justify-center items-center flex p-5'>
+                        <div className=' font-itim foot-font text-center'>
                             ที่เที่ยวที่เหมาะกับคุณ
                         </div>
                     </Header>
@@ -46,14 +46,15 @@ export default function Attractions() {
                         <Content className='flex justify-center items-center h-full '>
                             {peResult.map((result, index) => {
                                 return (
-                                    <div key={index} className='flex text-center font-itim bigger-font '>
-                                        <div className='sm:px-0 md:px-[5%] xl:px-[10%] flex justify-center items-center w-1/2 h-1/2 rounded-lg  font-itim bigger-font '>
+                                    <Row key={index} className='flex text-center font-itim bigger-font w-full h-auto'>
+                                        <Row className='w-full sm:px-0 md:px-[5%] xl:px-[10%] flex justify-center items-center h-1/2 rounded-lg  font-itim bigger-font '>
+                                            <img class=" w-1/4" src={`http://localhost:3001/images/${result.Personal_IMG}`} alt="image description" />
+                                        </Row>
+                                        <Row className='sm:px-0 md:px-[5%] xl:px-[10%] flex justify-center items-center w-full h-1/2 rounded-lg  font-itim bigger-font '>
                                             <img class="w-1/2" src={`http://localhost:3001/images/${result.Suggest_IMG}`} alt="image description" />
-                                        </div>
-                                        <div className='w-1/2 sm:px-0 md:px-[5%] xl:px-[10%] flex justify-center items-center h-1/2 rounded-lg  font-itim bigger-font '>
-                                            <img class=" w-1/2" src={`http://localhost:3001/images/${result.Personal_IMG}`} alt="image description" />
-                                        </div>
-                                    </div>
+                                        </Row>
+                                        
+                                    </Row>
                                 )
                             })}
 

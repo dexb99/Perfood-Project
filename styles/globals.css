@@ -5,6 +5,10 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif,;
 }
+.normalfoot-font{
+  font-family: Itim;
+  font-size: clamp(0.75rem, 3.5vw, 2.1rem);
+}
 .minifoot-font{
   font-family: Itim;
   font-size: clamp(0.75rem, 3.5vw, 2.0rem);
