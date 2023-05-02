@@ -40,37 +40,35 @@ app.put('/updateStatus/:id', (req, res) => {
     });
 });
 
-app.post('/upload', upload.single('image'), (req, res) => {
-    const image = req.file.filename;
-    // db.query("UPDATE `personal` SET `Personal_IMG` = ? WHERE `personal`.`Personal_ID` = 'PER_04' ", [image])
-})
 
 // โค้ดสำหรับ insert personal
-app.post('/createNoimg', (req, res) => {
-    const Personal_ID = req.body.Personal_ID
-    const Personal_Name = req.body.Personal_Name
-    const Personal_Detail = req.body.Personal_Detail
-    const Threshold = req.body.Threshold
-    db.query("INSERT INTO personal (Personal_ID, Personal_Name, Personal_Detail, Threshold) VALUES (?,?,?,?) ", [Personal_ID, Personal_Name, Personal_Detail, Threshold], (err, result) => {
-        if (err) {
-            console.log(err);
-        } else {
-            console.log('inserted');
-        }
-    })
-})
-app.post('/createWithimg', upload.single('image'), (req, res) => {
-    const image = req.file.filename;
+
+app.post('/createpersonal', upload.fields([{ name: 'Personal_IMG', maxCount: 1 }, { name: 'Suggest_IMG', maxCount: 1 }]), (req, res) => {
     const Personal_ID = req.body.Personal_ID
     const Personal_Name = req.body.Personal_Name
     const Personal_Detail = req.body.Personal_Detail
     const Threshold = req.body.Threshold
 
-    db.query("INSERT INTO personal (Personal_ID, Personal_Name, Personal_Detail, Threshold, Personal_IMG) VALUES (?,?,?,?,?) ", [Personal_ID, Personal_Name, Personal_Detail, Threshold, image], (err, result) => {
+    let Personal_IMG = null
+    let Suggest_IMG = null
+
+    if (req.files['Personal_IMG']) {
+        Personal_IMG = req.files['Personal_IMG'][0].filename;
+        console.log(Personal_IMG)
+    } else {
+        console.log(Personal_IMG)
+    }
+
+    if (req.files['Suggest_IMG']) {
+        Suggest_IMG = req.files['Suggest_IMG'][0].filename;
+        console.log(Suggest_IMG)
+    } else {
+        console.log(Suggest_IMG)
+    }
+    db.query("INSERT INTO personal (Personal_ID, Personal_Name, Personal_Detail, Threshold, Personal_IMG,Suggest_IMG) VALUES (?,?,?,?,?,?) ", [Personal_ID, Personal_Name, Personal_Detail, Threshold, Personal_IMG, Suggest_IMG], (err, result) => {
         if (err) {
             console.log(err);
         } else {
-            console.log('inserted');
         }
     })
 })
@@ -78,14 +76,31 @@ app.post('/createWithimg', upload.single('image'), (req, res) => {
 
 
 //Update personal
-app.put('/updatewithimg', upload.single('image'), (req, res) => {
-    const image = req.file.filename;
-    const Personal_ID = req.body.Personal_ID
-    const Personal_Name = req.body.Personal_Name
-    const Personal_Detail = req.body.Personal_Detail
-    const Threshold = req.body.Threshold
+app.put('/updatepersonal', upload.fields([{ name: 'Personal_IMG', maxCount: 1 }, { name: 'Suggest_IMG', maxCount: 1 }]), (req, res) => {
+    const Personal_ID = req.body.Personal_ID;
+    const Personal_Name = req.body.Personal_Name;
+    const Personal_Detail = req.body.Personal_Detail;
+    const Threshold = req.body.Threshold;
 
-    db.query("UPDATE `personal` SET Personal_Name = ?, Personal_Detail = ?, Personal_IMG = ?, Threshold = ?  WHERE `personal`.`Personal_ID` = ? ", [Personal_Name, Personal_Detail, image, Threshold, Personal_ID], (err, result) => {
+    let Personal_IMG = null
+    let Suggest_IMG = null
+
+    if (req.files['Personal_IMG']) {
+        Personal_IMG = req.files['Personal_IMG'][0].filename;
+        console.log(Personal_IMG)
+    } else {
+        Personal_IMG = req.body.Personal_IMG;
+        console.log(Personal_IMG)
+    }
+
+    if (req.files['Suggest_IMG']) {
+        Suggest_IMG = req.files['Suggest_IMG'][0].filename;
+        console.log(Suggest_IMG)
+    } else {
+        Suggest_IMG = req.body.Suggest_IMG;
+        console.log(Suggest_IMG)
+    }
+    db.query("UPDATE `personal` SET Personal_Name = ?, Personal_Detail = ?, Personal_IMG = ?, Threshold = ?,Suggest_IMG = ? WHERE `personal`.`Personal_ID` = ? ", [Personal_Name, Personal_Detail, Personal_IMG, Threshold, Suggest_IMG, Personal_ID], (err, result) => {
         if (err) {
             console.log(err);
         } else {
@@ -402,6 +417,21 @@ app.get('/personal/:id', (req, res) => {
             console.log(err);
         } else {
             res.send(result);
+        }
+    })
+})
+
+//จำนวนคนทำกับคนที่เข้ามาดูเฉยๆ
+app.get('/getVieworDo', (req, res) => {
+    db.query("SELECT * FROM num_response", (err, result) => {
+        if (err) {
+            console.log(err)
+        } else {
+            const Number = result.map(row => ({
+                type: row.Done_Survey,
+                number: row.number
+            }))
+            res.send(Number)
         }
     })
 })

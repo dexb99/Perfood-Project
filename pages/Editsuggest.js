@@ -30,7 +30,7 @@ export default function EditSuggest() {
     const handleUpload = () => {
         personal.map(personal => {
             if (file.length === 0) {
-                axios.put('http://localhost:3001/updateNoimg', {
+                axios.put('http://localhost:3001/updateNoSuggest', {
                     Personal_ID: personal.Personal_ID,
                     Personal_Name: newPername || personal.Personal_Name,
                     Personal_Detail: newDetail || personal.Personal_Detail,
@@ -47,7 +47,7 @@ export default function EditSuggest() {
                 formData.append('Personal_Name', newPername || personal.Personal_Name)
                 formData.append('Personal_Detail', newDetail || personal.Personal_Detail)
                 formData.append('Threshold', newThreshold || personal.Threshold)
-                axios.put('http://localhost:3001/updatewithimg', formData)
+                axios.put('http://localhost:3001/updatewithSuggest', formData)
                     .then(response => console.log(response))
                     .catch(err => console.log(err));
                 window.location.reload();

@@ -7,8 +7,10 @@ import Navbar from './Components/Navbar'
 import axios from 'axios';
 import personalByID from './Components/personalByID';
 export default function EditPersonal() {
-    const [file, setFile] = useState([]);
+    const [file, setFile] = useState(null);
+    const [file2, setFile2] = useState(null);
     const [filePreview, setFilePreview] = useState([]);
+    const [filePreview2, setFilePreview2] = useState([]);
     const personal = personalByID();
     const [newPername, setNewPername] = useState(null)
     const [newThreshold, setNewThreshold] = useState(null)
@@ -24,35 +26,34 @@ export default function EditPersonal() {
             console.log('pls upload image');
         }
     }
+    const handleFileChange2 = (e) => {
+        const selectedFile2 = e.target.files[0];
+        if (selectedFile2) {
+            setFile2(selectedFile2);
+            setFilePreview2(URL.createObjectURL(selectedFile2));
+        }
+        else {
+            console.log('pls upload image');
+        }
+    }
     const onSucess = () => {
         localStorage.clear()
     }
     const handleUpload = () => {
         personal.map(personal => {
-            if (file.length === 0) {
-                axios.put('http://localhost:3001/updateNoimg', {
-                    Personal_ID: personal.Personal_ID,
-                    Personal_Name: newPername || personal.Personal_Name,
-                    Personal_Detail: newDetail || personal.Personal_Detail,
-                    Threshold: newThreshold || personal.Threshold
-                }).then((response) => {
-                    console.log(response)
-                })
-                window.location.reload();
-
-            } else {
-                const formData = new FormData();
-                formData.append('image', file);
-                formData.append('Personal_ID', personal.Personal_ID)
-                formData.append('Personal_Name', newPername || personal.Personal_Name)
-                formData.append('Personal_Detail', newDetail || personal.Personal_Detail)
-                formData.append('Threshold', newThreshold || personal.Threshold)
-                axios.put('http://localhost:3001/updatewithimg', formData)
-                    .then(response => console.log(response))
-                    .catch(err => console.log(err));
-                window.location.reload();
-            }
-        })
+            const formData = new FormData();
+            formData.append('Personal_IMG', file || personal.Personal_IMG)
+            formData.append('Suggest_IMG', file2 || personal.Suggest_IMG)
+            formData.append('Personal_ID', personal.Personal_ID)
+            formData.append('Personal_Name', newPername || personal.Personal_Name)
+            formData.append('Personal_Detail', newDetail || personal.Personal_Detail)
+            formData.append('Threshold', newThreshold || personal.Threshold)
+            axios.put('http://localhost:3001/updatepersonal', formData)
+                .then(response => console.log(response))
+                .catch(err => console.log(err));
+            window.location.reload();
+        }
+        )
     };
 
     const { TextArea } = Input;
@@ -60,15 +61,14 @@ export default function EditPersonal() {
         <div>
             <Navbar />
             <main className=' h-auto  pt-16 sm:px-5 md:px-[10%] xl:px-[20%]'>
-                {personal.map(personal => {
+                {personal.map((personal, index) => {
                     return (
-                        <Form className=' sm:px-3 md:px-[2.5%] xl:px-[5%] h-auto bg-yellow-100'>
+                        <Form key={index} className=' sm:px-3 md:px-[2.5%] xl:px-[5%] h-auto bg-yellow-100'>
                             <Form.Item className=' p-4 h-auto bg-transparent '>
                                 <Form.Item className=' px-[1.625rem] shadow-[0px_4px_4px_rgba(0,_0,_0,_0.25)]  p-1 h-auto'>
                                     <div className='font-itim text-yellow-500 text-center bigger-font'>
                                         {personal.Personal_Name}
                                     </div>
-
                                 </Form.Item>
                                 <Form.Item className=' px-[1.625rem] shadow-[0px_4px_4px_rgba(0,_0,_0,_0.25)]  p-1 h-auto'>
                                     <div className='font-itim text-yellow-500'>
@@ -96,11 +96,30 @@ export default function EditPersonal() {
                                 </Form.Item>
                             </Form.Item>
                             <Form.Item className=''>
-                                <div className='border-black border-2'>
-                                    <input className='font-itim flex  w-full' type='file' accept='.jpg,.jpeg,.png' onChange={handleFileChange} />
-                                </div>
-                                <div className='flex justify-center'>
-                                    {filePreview && <img className=' w-1/2 h-auto' src={filePreview} />}
+                                <div className='w-full flex'>
+                                    <div className=' w-1/2 sm:w-full md:w-full'>
+                                        <div className='font-itim text-center'>
+                                            เลือกรูปบุคลักษณ์
+                                        </div>
+                                        <div>
+                                            <input className='font-itim flex w-full' type='file' accept='.jpg,.jpeg,.png' onChange={handleFileChange} />
+                                        </div>
+                                        <div>
+                                            {filePreview && <img className='p-2 w-full h-auto' src={filePreview} />}
+                                        </div>
+                                    </div>
+                                    <div className=' w-1/2 sm:w-full md:w-full'>
+                                        <div className='font-itim text-center'>
+                                            รูปแนะนำการท่องเที่ยว
+                                        </div>
+                                        <div>
+                                            <input className='font-itim flex w-full' type='file' accept='.jpg,.jpeg,.png' onChange={handleFileChange2} />
+                                        </div>
+                                        <div>
+                                            {filePreview2 && <img className='p-2 w-full h-auto' src={filePreview2} />}
+                                        </div>
+                                    </div>
+
                                 </div>
                             </Form.Item>
                             <Form.Item>

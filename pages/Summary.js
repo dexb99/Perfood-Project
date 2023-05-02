@@ -17,9 +17,7 @@ export default function Summary() {
         })
     })
     const { Header, Content, Footer } = Layout;
-    const [selectedValue, setSelectedValue] = useState(null);
     const [peResult, setPeResult] = useState([]);
-    const [clicked, setClicked] = useState(false);
     const customIcons = {
         1: <FrownOutlined />,
         2: <FrownOutlined />,
@@ -31,31 +29,7 @@ export default function Summary() {
         window.location.reload();
     }
     const insertData = () => {
-        const ResponseID = JSON.parse(localStorage.getItem('Response'))
-        const QuestionData = JSON.parse(localStorage.getItem('quiz'))
-        const ResultData = JSON.parse(localStorage.getItem('Result'))
 
-        ResponseID.map((resid) => {
-
-        })
-        QuestionData.map((id) => {
-            axios.post('http://localhost:3001/questscore', {
-                Response_ID: ResponseID[0].Response_ID,
-                Question_ID: id.question_ID,
-                choice_ID: id.choiceID,
-                Question_score: id.question_score
-            }).then((response) => {
-            })
-        })
-        ResultData.map((id) => {
-            axios.post('http://localhost:3001/result', {
-                Response_ID: ResponseID[0].Response_ID,
-                Personal_ID: id.Personal_ID,
-                Resultscore: id.totalscore
-            }).then((resonse) => {
-
-            })
-        })
 
     };
     useEffect(() => {
@@ -90,6 +64,10 @@ export default function Summary() {
             })
         })
     }
+    const getResult = () => {
+        localStorage.removeItem('quiz')
+        localStorage.removeItem('rating')
+    }
     useEffect(() => {
         const resultStr = localStorage.getItem('Result');
         if (resultStr) {
@@ -106,7 +84,7 @@ export default function Summary() {
             <UserNavbar />
             <main className=' h-auto max-h-auto sm:px-[0] md:px-[10%] xl:px-[20%] py-16 '>
                 <Header className='bg-yellow-600  h-[15%] justify-end items-center flex'>
-                    <Link className='flex items-center' href="#">
+                    <Link onClick={getResult} className='flex items-center' href="/Attractions">
                         <button className="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-base font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-yellow-400 to-orange-600 group-hover:from-yellow-400 group-hover:to-orange-600 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-yellow-200 dark:focus:ring-yellow-800">
                             <span className="relative px-10 py-0 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
                                 ที่เที่ยวที่เหมาะกับคุณ

@@ -7,8 +7,10 @@ import personalData from './Components/personal_Data';
 import axios from 'axios';
 export default function CreatePersonal() {
     const perData = personalData();
-    const [file, setFile] = useState([]);
+    const [file, setFile] = useState(null);
+    const [file2, setFile2] = useState(null);
     const [filePreview, setFilePreview] = useState([]);
+    const [filePreview2, setFilePreview2] = useState([]);
     const [perName, setNewpername] = useState('')
     const [newThreshold, setNewThreshold] = useState(0)
     const [newDetail, setNewDetail] = useState('');
@@ -23,34 +25,32 @@ export default function CreatePersonal() {
             console.log('pls upload image');
         }
     }
+    const handleFileChange2 = (e) => {
+        const selectedFile2 = e.target.files[0];
+        if (selectedFile2) {
+            setFile2(selectedFile2);
+            setFilePreview2(URL.createObjectURL(selectedFile2));
+        }
+        else {
+            console.log('pls upload image');
+        }
+    }
     const addData = (event) => {
         const getID = JSON.parse(localStorage.getItem('PercreateID'));
         console.log(getID)
         getID.map((id) => {
-            console.log(id.PercreateID)
-            console.log(perName)
-            console.log(newDetail)
-            console.log(newThreshold)
-            if (file.length === 0) {
-                axios.post('http://localhost:3001/createNoimg', {
-                    Personal_ID: id.PercreateID,
-                    Personal_Name: perName,
-                    Personal_Detail: newDetail,
-                    Threshold: newThreshold
-                }).then((response) => {
-                    console.log(response)
-                })
-            } else {
-                const formData = new FormData();
-                formData.append('image', file);
-                formData.append('Personal_ID', id.PercreateID)
-                formData.append('Personal_Name', perName)
-                formData.append('Personal_Detail', newDetail)
-                formData.append('Threshold', newThreshold)
-                axios.post('http://localhost:3001/createWithimg', formData)
-                    .then(response => console.log(response))
-                    .catch(err => console.log(err));
-            }
+
+            const formData = new FormData();
+            formData.append('Personal_IMG', file)
+            formData.append('Suggest_IMG', file2)
+            formData.append('Personal_ID', id.PercreateID)
+            formData.append('Personal_Name', perName)
+            formData.append('Personal_Detail', newDetail)
+            formData.append('Threshold', newThreshold)
+            axios.post('http://localhost:3001/createpersonal', formData)
+                .then(response => console.log(response))
+                .catch(err => console.log(err));
+
         })
         localStorage.clear();
     }
@@ -82,14 +82,30 @@ export default function CreatePersonal() {
                         </Form.Item>
                     </Form.Item>
                     <Form.Item className=''>
-                        <div className='text-center font-itim'>
-                            อัพโหลดรูปบุคลักษณ์
-                        </div>
-                        <div className='border-black border-2'>
-                            <input className='font-itim flex  w-full' type='file' accept='.jpg,.jpeg,.png' onChange={handleFileChange} />
-                        </div>
-                        <div className='flex justify-center'>
-                            {filePreview && <img className=' w-1/2 h-auto' src={filePreview} />}
+                        <div className='w-full flex'>
+                            <div className=' w-1/2 sm:w-full md:w-full'>
+                                <div className='font-itim text-center'>
+                                    เลือกรูปบุคลักษณ์
+                                </div>
+                                <div>
+                                    <input className='font-itim flex w-full' type='file' accept='.jpg,.jpeg,.png' onChange={handleFileChange} />
+                                </div>
+                                <div>
+                                    {filePreview && <img className='p-2 w-full h-auto' src={filePreview} />}
+                                </div>
+                            </div>
+                            <div className=' w-1/2 sm:w-full md:w-full'>
+                                <div className='font-itim text-center'>
+                                    เลือกรูปบุคลักษณ์
+                                </div>
+                                <div>
+                                    <input className='font-itim flex w-full' type='file' accept='.jpg,.jpeg,.png' onChange={handleFileChange2} />
+                                </div>
+                                <div>
+                                    {filePreview2 && <img className='p-2 w-full h-auto' src={filePreview2} />}
+                                </div>
+                            </div>
+
                         </div>
                     </Form.Item>
                     <Form.Item>
