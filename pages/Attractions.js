@@ -43,9 +43,12 @@ export default function Attractions() {
                         <Content className='flex justify-center items-center h-full '>
                             {peResult.map((result, index) => {
                                 return (
-                                    <div key={index} className='text-center font-itim bigger-font '>
-                                        <div className='sm:px-0 md:px-[5%] xl:px-[10%] flex justify-center items-center w-auto h-1/2 rounded-lg  font-itim bigger-font '>
-                                            <img class=" " src={`http://localhost:3001/images/${result.Suggest_IMG}`} alt="image description" />
+                                    <div key={index} className='flex text-center font-itim bigger-font '>
+                                        <div className='sm:px-0 md:px-[5%] xl:px-[10%] flex justify-center items-center w-1/2 h-1/2 rounded-lg  font-itim bigger-font '>
+                                            <img class="w-1/2" src={`http://localhost:3001/images/${result.Suggest_IMG}`} alt="image description" />
+                                        </div>
+                                        <div className='w-1/2 sm:px-0 md:px-[5%] xl:px-[10%] flex justify-center items-center h-1/2 rounded-lg  font-itim bigger-font '>
+                                            <img class=" w-1/2" src={`http://localhost:3001/images/${result.Personal_IMG}`} alt="image description" />
                                         </div>
                                     </div>
                                 )
