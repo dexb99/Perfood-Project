@@ -1,4 +1,5 @@
 const express = require('express');
+const browser = require('browser-detect');
 const app = express();
 const mysql = require('mysql');
 const cors = require('cors');
@@ -27,6 +28,12 @@ const db = mysql.createConnection({
     password: "",
     database: "perfood"
 });
+
+app.get('/browserName', (req, res) => {
+    const result = browser(req.headers['user-agent']);
+    console.log(result)
+    res.send(result)
+})
 
 app.put('/updateStatus/:id', (req, res) => {
     const id = req.params.id;

@@ -7,8 +7,21 @@ import axios from 'axios';
 import surveyList from './Components/surveyList';
 import Router from 'next/router';
 export default function Index() {
+
+  const [browserName, setBrowserName] = useState('');
+  const [ipAddress, setIpAddress] = useState('');
   const SuveyList = surveyList();
   const [sur, setSur] = useState(`SVY_01`);
+
+  const fetchData = () => {
+    axios.get('https://api.ipify.org?format=json').then((response) => {
+      setIpAddress(response.data.ip);
+    })
+    axios.get('http://localhost:3001/browserName').then((response) => {
+      console.log(response.data)
+    })
+  }
+  fetchData();
   const beginResponse = () => {
     const respone = localStorage.getItem('Response')
     if (respone) {
