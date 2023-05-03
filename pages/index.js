@@ -21,6 +21,8 @@ export default function Index() {
       console.log(response.data)
     })
   }
+
+  // i just wannpen fan you daibor
   fetchData();
   const beginResponse = () => {
     const respone = localStorage.getItem('Response')

@@ -4,6 +4,7 @@ import { Layout, Button, Drawer, Modal, Form, Input, Row, Col } from 'antd';
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import UserNavbar from './Components/userNavbar';
+import { NextSeo } from 'next-seo';
 import {
     FacebookShareButton,
     FacebookIcon,
@@ -34,9 +35,30 @@ export default function Attractions() {
     const handleReset = () => {
         localStorage.clear();
     };
+    const title = 'My awesome webpage';
+    const description = 'This is my webpage description';
+    const url = 'https://www.example.com';
+    const imageUrl = 'https://www.example.com/image.jpg';
     return (
         <>
             <UserNavbar />
+            <NextSeo
+                title={title}
+                description={description}
+                canonical={url}
+                openGraph={{
+                    url,
+                    title,
+                    description,
+                    images: [
+                        {
+                            url: imageUrl,
+                            alt: 'My awesome image',
+                        },
+                    ],
+                    site_name: 'My Site Name',
+                }}
+            />
             <main className=" bg-cover h-auto sm:px-5 md:px-[10%] xl:px-[20%] py-16">
                 <Layout className="h-full w-full bg-yellow-100">
                     <Header className=' bg-transparent h-[10%] justify-center items-center flex p-5'>
@@ -56,7 +78,7 @@ export default function Attractions() {
                                         <Row className='sm:px-0 md:px-[5%] xl:px-[10%] flex justify-center items-center w-full h-1/2 rounded-lg  font-itim bigger-font '>
                                             <img class="w-1/2" src={`http://localhost:3001/images/${result.Suggest_IMG}`} alt="image description" />
                                         </Row>
-                                        
+
                                     </Row>
                                 )
                             })}
@@ -94,10 +116,11 @@ export default function Attractions() {
                     <div className='flex justify-center w-1/2 px-3 rounded-lg '>
 
                         <FacebookShareButton
-                            url={'https://github.com/'}
-                            quote={'next-share is a social share buttons for your next React apps.'}
-                            picture={'https://images.unsplash.com/photo-1575936123452-b67c3203c357?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80'}
-                        >
+                            url={url}
+                            quote={title}>
+                                <div className='font-itim'>
+                                    แชร์ไปยัง
+                                </div>
                             <FacebookIcon size={32} round />
                         </FacebookShareButton>
 
