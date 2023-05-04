@@ -3,9 +3,9 @@ import { Button, Form, Input, InputNumber, message, Upload } from 'antd';
 import Link from 'next/link';
 import { InboxOutlined } from '@ant-design/icons';
 import { useState } from 'react';
-import Navbar from './Components/Navbar'
+import Navbar from '../Components/Navbar'
 import axios from 'axios';
-import personalByID from './Components/personalByID';
+import personalByID from '../Components/personalByID';
 export default function EditSuggest() {
     const [file, setFile] = useState([]);
     const [filePreview, setFilePreview] = useState([]);

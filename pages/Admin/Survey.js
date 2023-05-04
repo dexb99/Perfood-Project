@@ -1,8 +1,8 @@
 import React from 'react'
 import { Layout, Button, Drawer, Modal, Form, Input } from 'antd';
 import Link from 'next/link';
-import Navbar from './Components/Navbar'
-import surveyList from './Components/surveyList';
+import Navbar from '../Components/Navbar'
+import surveyList from '../Components/surveyList';
 export default function Survey() {
     const survey = surveyList();
     const handleEdit = (event) => {
@@ -56,7 +56,7 @@ export default function Survey() {
             {console.log(survey)}
             <main className=" h-screen pt-16 sm:px-5 md:px-[10%] xl:px-[20%]">
                 <Layout className=" sm:px-3 md:px-[2.5%] xl:px-[5%] h-full w-full bg-yellow-100 ">
-                    
+
                     <Content className='border-solid  h-[80%] sm:p-1 md:p-[2%] xl:p-[4%] '>
                         <div className='border-solid border-2 '>
 
@@ -69,7 +69,7 @@ export default function Survey() {
                                         </div>
                                         <div className=' w-1/2 flex items-center justify-end text-center '>
                                             <div className=' bg-gray-400 rounded-lg p-1 font-itim'>
-                                                <Link className='px-5 hover:text-white' id={survey.Survey_ID} onClick={handleEdit} href="/Edit">แก้ไข</Link>
+                                                <Link className='px-5 hover:text-white' id={survey.Survey_ID} onClick={handleEdit} href="/pages/Admin/Edit.js">แก้ไข</Link>
                                                 <Link className='px-5 hover:text-white ' id={survey.Survey_ID} onClick={handleDelete} href="#">ลบ</Link>
                                             </div>
                                         </div>

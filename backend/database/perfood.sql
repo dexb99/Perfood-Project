@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 02, 2023 at 05:37 PM
+-- Generation Time: May 03, 2023 at 04:45 PM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 8.0.8
 
@@ -1066,7 +1066,31 @@ INSERT INTO `question_score` (`Score_ID`, `Response_ID`, `Question_ID`, `Choice_
 (1040, 19, 5, 'CH5_D', 4),
 (1041, 19, 12, 'CH12_D', 4),
 (1042, 19, 6, 'CH6_C', 3),
-(1043, 19, 7, 'CH7_A', 1);
+(1043, 19, 7, 'CH7_A', 1),
+(1044, 22, 1, 'CH1_A', 1),
+(1045, 22, 2, 'CH2_C', 3),
+(1046, 22, 3, 'CH3_B', 2),
+(1047, 22, 4, 'CH4_A', 1),
+(1048, 22, 5, 'CH5_D', 4),
+(1049, 22, 6, 'CH6_C', 3),
+(1050, 22, 8, 'CH8_B', 2),
+(1051, 22, 7, 'CH7_A', 1),
+(1052, 22, 9, 'CH9_D', 4),
+(1053, 22, 10, 'CH10_D', 4),
+(1054, 22, 11, 'CH11_D', 4),
+(1055, 22, 12, 'CH12_B', 2),
+(1056, 22, 1, 'CH1_C', 3),
+(1057, 22, 2, 'CH2_D', 4),
+(1058, 22, 9, 'CH9_C', 3),
+(1059, 22, 3, 'CH3_C', 3),
+(1060, 22, 4, 'CH4_A', 1),
+(1061, 22, 10, 'CH10_A', 1),
+(1062, 22, 11, 'CH11_D', 4),
+(1063, 22, 12, 'CH12_A', 1),
+(1064, 22, 6, 'CH6_A', 1),
+(1065, 22, 5, 'CH5_C', 3),
+(1066, 22, 7, 'CH7_C', 3),
+(1067, 22, 8, 'CH8_C', 3);
 
 -- --------------------------------------------------------
 
@@ -1104,7 +1128,10 @@ INSERT INTO `response` (`Response_ID`, `Survey_ID`, `TimeStamp`, `User_Rate`) VA
 (16, 'SVY_01', '2023-05-02 05:54:48', 4),
 (17, 'SVY_01', '2023-05-02 14:53:49', 0),
 (18, 'SVY_01', '2023-05-02 15:05:53', 0),
-(19, 'SVY_01', '2023-05-02 15:06:46', 0);
+(19, 'SVY_01', '2023-05-02 15:06:46', 0),
+(20, 'SVY_01', '2023-05-02 16:44:58', 0),
+(21, 'SVY_01', '2023-05-02 16:46:43', 0),
+(22, 'SVY_01', '2023-05-02 17:04:36', 4);
 
 -- --------------------------------------------------------
 
@@ -1148,7 +1175,9 @@ INSERT INTO `result` (`id`, `Response_ID`, `resultScore`, `Personal_ID`) VALUES
 (11, 15, 30, 'PER_3'),
 (12, 16, 32, 'PER_3'),
 (13, 17, 33, 'PER_3'),
-(14, 19, 32, 'PER_3');
+(14, 19, 32, 'PER_3'),
+(15, 22, 31, 'PER_3'),
+(16, 22, 30, 'PER_3');
 
 -- --------------------------------------------------------
 
@@ -1290,19 +1319,19 @@ ALTER TABLE `question`
 -- AUTO_INCREMENT for table `question_score`
 --
 ALTER TABLE `question_score`
-  MODIFY `Score_ID` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1044;
+  MODIFY `Score_ID` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1068;
 
 --
 -- AUTO_INCREMENT for table `response`
 --
 ALTER TABLE `response`
-  MODIFY `Response_ID` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `Response_ID` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `result`
 --
 ALTER TABLE `result`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- Constraints for dumped tables

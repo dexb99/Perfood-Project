@@ -1,9 +1,10 @@
 import React from 'react'
 import { Layout, Button, Drawer, Modal, Form, Input } from 'antd';
 import Link from 'next/link';
-import Navbar from './Components/Navbar'
-import personalData from './Components/personal_Data';
+import Navbar from '../Components/Navbar'
+import personalData from '../Components/personal_Data';
 import axios from 'axios';
+import Router from 'next/router';
 export default function Personal() {
     const person = personalData();
     const handleEdit = (event) => {
@@ -12,6 +13,7 @@ export default function Personal() {
         }];
         const setLocalPerID = JSON.stringify(PersonalID)
         localStorage.setItem('PER_ID', setLocalPerID)
+        Router.push('/Admin/Editpersonal')
     }
 
     const handleDelete = (event) => {
@@ -53,6 +55,7 @@ export default function Personal() {
             const setIDcrt = JSON.stringify(idForeCreate)
             localStorage.setItem('PercreateID', setIDcrt)
         }
+        Router.push('/Admin/Createpersonal')
     }
     const { Header, Content, Footer } = Layout;
 
@@ -63,7 +66,7 @@ export default function Personal() {
                 <Layout className=" sm:px-3 md:px-[2.5%] xl:px-[5%] h-full w-full bg-yellow-100 ">
                     <Header className='   sm:p-1 md:p-[2%] xl:p-[4%] bg-transparent  h-[10%]'>
                         <div className='p-3'>
-                            <Button href='/Createpersonal' onClick={addPerID} className=' font-itim bg-white flex justify-center shadow-[0px_4px_4px_rgba(0,_0,_0,_0.25)] px-6 rounded-lg w-full text-yellow-500 '>
+                            <Button href='#' onClick={addPerID} className=' font-itim bg-white flex justify-center shadow-[0px_4px_4px_rgba(0,_0,_0,_0.25)] px-6 rounded-lg w-full text-yellow-500 '>
                                 เพิ่มบุคลักษณ์
                             </Button>
                         </div>
@@ -80,7 +83,7 @@ export default function Personal() {
                                         <div className=' w-1/2 flex items-center justify-end text-center '>
                                             <div className='flex bg-gray-400 rounded-lg p-1 font-itim'>
                                                 <div>
-                                                    <Link className='px-5 hover:text-white' id={personal.Personal_ID} onClick={handleEdit} href="/Editpersonal">แก้ไข</Link>
+                                                    <Link className='px-5 hover:text-white' id={personal.Personal_ID} onClick={handleEdit} href="#">แก้ไข</Link>
                                                 </div>
                                                 <div>
                                                     <Link className='px-5 hover:text-white ' id={personal.Personal_ID} onClick={handleDelete} href="#">ลบ</Link>

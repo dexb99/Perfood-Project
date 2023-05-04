@@ -3,8 +3,9 @@ import { PlayCircleFilled, FileOutlined } from '@ant-design/icons'
 import { Layout, Button, Drawer, Modal, Form, Input, Row, Col } from 'antd';
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
-import UserNavbar from './Components/userNavbar';
+import UserNavbar from '../Components/userNavbar';
 import { NextSeo } from 'next-seo';
+import Head from 'next/head';
 import {
     FacebookShareButton,
     FacebookIcon,
@@ -35,30 +36,20 @@ export default function Attractions() {
     const handleReset = () => {
         localStorage.clear();
     };
-    const title = 'My awesome webpage';
-    const description = 'This is my webpage description';
-    const url = 'https://www.example.com';
-    const imageUrl = 'https://www.example.com/image.jpg';
+    const title = "Perfood Chiangkan";
+    const description = "แบบทดสอบค้นหาบุคลักษณ์ในตัวคุณ แบบ 300 %";
+    const image = "https://metatags.io/assets/meta-tags-16a33a6a8531e519cc0936fbba0ad904e52d35f34a46c97a2c9f6f7dd7d336f2.png";
+    const url = "https://bkhighlights2021.wixsite.com/";
     return (
         <>
+            <Head>
+                <meta property="og:type" content="website" />
+                <meta property="og:url" content={url} />
+                <meta property="og:title" content={title} />
+                <meta property="og:description" content={description} />
+                <meta property="og:image" content={image} />
+            </Head>
             <UserNavbar />
-            <NextSeo
-                title={title}
-                description={description}
-                canonical={url}
-                openGraph={{
-                    url,
-                    title,
-                    description,
-                    images: [
-                        {
-                            url: imageUrl,
-                            alt: 'My awesome image',
-                        },
-                    ],
-                    site_name: 'My Site Name',
-                }}
-            />
             <main className=" bg-cover h-auto sm:px-5 md:px-[10%] xl:px-[20%] py-16">
                 <Layout className="h-full w-full bg-yellow-100">
                     <Header className=' bg-transparent h-[10%] justify-center items-center flex p-5'>
@@ -117,10 +108,10 @@ export default function Attractions() {
 
                         <FacebookShareButton
                             url={url}
-                            quote={title}>
-                                <div className='font-itim'>
-                                    แชร์ไปยัง
-                                </div>
+                            quote={description}>
+                            <div className='font-itim'>
+                                แชร์ไปยัง
+                            </div>
                             <FacebookIcon size={32} round />
                         </FacebookShareButton>
 

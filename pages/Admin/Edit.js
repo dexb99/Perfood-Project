@@ -2,10 +2,11 @@ import React from 'react'
 import { Layout, Button, Drawer, Modal, Form, Input, Select, InputNumber } from 'antd';
 import Link from 'next/link';
 import { useState, useRef } from 'react';
-import Navbar from './Components/Navbar'
+import Navbar from '../Components/Navbar'
 import axios from 'axios';
-import questData from './Components/questData';
-import surveyList from './Components/surveyList';
+import questData from '../Components/questData';
+import surveyList from '../Components/surveyList';
+import Router from 'next/router';
 export default function Edit() {
     const question = questData()
     const survey = surveyList()
@@ -16,6 +17,7 @@ export default function Edit() {
     }
     const onSuccess = () => {
         localStorage.clear();
+        Router.push('/Admin/Dashboard')
     }
     const formRef = useRef(null);
     const handleSubmit = (event) => {
@@ -124,7 +126,7 @@ export default function Edit() {
                             </Button>
                         </div>
                         <div className='p-1'>
-                            <Button href='/Dashboard' onClick={onSuccess} className=' font-itim bg-white flex justify-center shadow-[0px_4px_4px_rgba(0,_0,_0,_0.25)] px-6 rounded-lg w-full text-yellow-500  '>
+                            <Button href='#' onClick={onSuccess} className=' font-itim bg-white flex justify-center shadow-[0px_4px_4px_rgba(0,_0,_0,_0.25)] px-6 rounded-lg w-full text-yellow-500  '>
                                 เสร็จสิ้น
                             </Button>
                         </div>

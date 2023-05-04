@@ -3,9 +3,10 @@ import { Button, Form, Input, InputNumber, message, Upload } from 'antd';
 import Link from 'next/link';
 import { InboxOutlined } from '@ant-design/icons';
 import { useState } from 'react';
-import Navbar from './Components/Navbar'
+import Navbar from '../Components/Navbar'
 import axios from 'axios';
-import personalByID from './Components/personalByID';
+import personalByID from '../Components/personalByID';
+import Router from 'next/router';
 export default function EditPersonal() {
     const [file, setFile] = useState(null);
     const [file2, setFile2] = useState(null);
@@ -38,6 +39,7 @@ export default function EditPersonal() {
     }
     const onSucess = () => {
         localStorage.clear()
+        Router.push('/Admin/personal')
     }
     const handleUpload = () => {
         personal.map(personal => {
@@ -137,7 +139,7 @@ export default function EditPersonal() {
                                     </Button>
                                 </div>
                                 <div className='p-1'>
-                                    <Button href='/personal' onClick={onSucess} className=' font-itim bg-white flex justify-center shadow-[0px_4px_4px_rgba(0,_0,_0,_0.25)] px-6 rounded-lg w-full text-yellow-500  '>
+                                    <Button href='#' onClick={onSucess} className=' font-itim bg-white flex justify-center shadow-[0px_4px_4px_rgba(0,_0,_0,_0.25)] px-6 rounded-lg w-full text-yellow-500  '>
                                         เสร็จสิ้น
                                     </Button>
                                 </div>
