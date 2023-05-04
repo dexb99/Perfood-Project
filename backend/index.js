@@ -27,7 +27,7 @@ const db = mysql.createConnection({
     host: "localhost",
     password: "",
     database: "perfood"
-});
+}); 
 
 app.get('/browserName', (req, res) => {
     const result = browser(req.headers['user-agent']);

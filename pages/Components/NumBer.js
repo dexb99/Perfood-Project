@@ -16,7 +16,7 @@ function NumBer() {
             {/* <h1 className="w-[150px] mx-auto mt-10 text-xl font-semibold capitalize ">Doughnut Chart</h1> */}
             <Row className='  w-full h-1/4 shadow-lg'>
                 <Col className='pt-0  w-1/2 h-fit my-auto  pb-2 radio-font text-center  text-yellow-800'>
-                    จำนวนผู้สอบแบบสอบถาม
+                    จำนวนผู้ตอบแบบสอบถาม
                 </Col>
                 <Col className='pt-0  w-1/2 h-fit my-auto  pb-2 radio-font text-center  text-yellow-800'>
                     ผู้เข้าชมเว็บ
