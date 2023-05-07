@@ -13,7 +13,7 @@ export default function Personal() {
         }];
         const setLocalPerID = JSON.stringify(PersonalID)
         localStorage.setItem('PER_ID', setLocalPerID)
-        Router.push('/Admin/Editpersonal')
+      
     }
 
     const handleDelete = (event) => {
@@ -83,7 +83,7 @@ export default function Personal() {
                                         <div className=' w-1/2 flex items-center justify-end text-center '>
                                             <div className='flex bg-gray-400 rounded-lg p-1 font-itim'>
                                                 <div>
-                                                    <Link className='px-5 hover:text-white' id={personal.Personal_ID} onClick={handleEdit} href="#">แก้ไข</Link>
+                                                    <Link className='px-5 hover:text-white' id={personal.Personal_ID} onClick={handleEdit} href="/Admin/Editpersonal">แก้ไข</Link>
                                                 </div>
                                                 <div>
                                                     <Link className='px-5 hover:text-white ' id={personal.Personal_ID} onClick={handleDelete} href="#">ลบ</Link>

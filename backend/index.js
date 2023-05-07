@@ -6,15 +6,43 @@ const cors = require('cors');
 const multer = require('multer');
 const path = require('path');
 const cookieSession = require('cookie-session');
+const { body, validationResult } = require('express-validator')
 const { send } = require('process');
 const { result } = require('lodash');
 app.use(cors());
 app.use(express.json());
 app.use(express.static('uploads'))
+app.use(express.urlencoded({ extended: false }))
+
+app.set('pages', path.join(__dirname, 'pages'));
+app.set('view engine', 'ejs');
+
+app.use(cookieSession({
+    name: 'sesssion',
+    keys: ['key1', 'key2'],
+    maxAge: 3500 * 100 // 1hr
+}))
+
+
+//Delcaring Custom Middleware
+
+const ifNotlogedIn = (req, res, next) => {
+    if (!req.session.isLoggedIn) {
+        return res.render('User')
+    } else {
+        return res.render('Admin')
+    }
+    next();
+}
+
+
+//uploads images to uploads file 
 const storage = multer.diskStorage({
+
     destination: (req, file, cb) => {
         cb(null, 'uploads/images')
     },
+
     filename: (req, file, cb) => {
         cb(null, file.fieldname + "_" + file.originalname);
     }
@@ -27,13 +55,14 @@ const db = mysql.createConnection({
     host: "localhost",
     password: "",
     database: "perfood"
-}); 
+});
 
 app.get('/browserName', (req, res) => {
     const result = browser(req.headers['user-agent']);
-    console.log(result)
+    // console.log(result)
     res.send(result)
 })
+
 
 app.put('/updateStatus/:id', (req, res) => {
     const id = req.params.id;
