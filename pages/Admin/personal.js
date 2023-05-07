@@ -1,12 +1,12 @@
 import React from 'react'
 import { Layout, Button, Drawer, Modal, Form, Input } from 'antd';
 import Link from 'next/link';
-import Navbar from '../Components/Navbar'
-import personalData from '../Components/personal_Data';
+import Navbar from '../../Components/Navbar'
+import PersonalData from '../../Components/personal_Data';
 import axios from 'axios';
 import Router from 'next/router';
 export default function Personal() {
-    const person = personalData();
+    const person = PersonalData();
     const handleEdit = (event) => {
         const PersonalID = [{
             "PER_ID": event.target.id

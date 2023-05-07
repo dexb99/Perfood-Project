@@ -8,8 +8,8 @@ function Barchart() {
         axios.get('http://localhost:3001/getBarchart').then((response) => {
             setChartProps(response.data)
         })
-        console.log(chartProps)
-    }, [])
+
+    }, [chartProps])
     useEffect(() => {
         const colors = ["rgb(102, 51, 0)", "rgb(75, 192, 192)", "rgb(255, 205, 86)", "rgb(255, 99, 132)"]
         const backgroundcolor = ["rgb(102, 51, 0,0.5)", "rgb(75, 192, 192,0.5)", "rgb(255, 205, 86,0.5)", "rgb(255, 99, 132,0.5)"]
@@ -30,7 +30,7 @@ function Barchart() {
                 datasets: datasets,
             },
         });
-    }, [chartProps])
+    }, [])
     return (
         <>
             {/* Bar chart */}

@@ -1,22 +1,22 @@
 import React from 'react'
-import Questions from '../Components/Questions';
+import Questions from '../../Components/Questions';
 import { Layout, Space, Col, Row, Button } from 'antd';
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import UserNavbar from '../Components/userNavbar';
-import questData from '../Components/questData';
-import surveyList from '../Components/surveyList';
+import UserNavbar from '../../Components/userNavbar';
+import QuestData from '../../Components/questData';
+import SurveyList from '../../Components/surveyList';
 import Router from 'next/router';
-export default function questionPage2() {
-    const SurveyList = surveyList();
+export default function QuestionPage2() {
+    const Surveylist = SurveyList();
     useEffect(() => {
-        SurveyList.map(survey => {
+        Surveylist.map(survey => {
             if (survey.Survey_Status === "off") {
                 Router.push('/surveyOff')
             }
         })
     })
-    const data = questData();
+    const data = QuestData();
     const questions = data.slice(4, 8)
     const { Footer } = Layout
     const ChceckRadio = () => {

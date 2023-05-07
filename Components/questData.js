@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
-export default function questData() {
+export default function QuestData() {
     const [questData, setQuestData] = useState([])
     const [choiceData, setChoiceData] = useState([])
     // const [combineData, setCombineData] = useState([])

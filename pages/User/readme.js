@@ -1,15 +1,15 @@
 import React from 'react';
 import { Col, Row, Image, Button, Layout, Drawer } from 'antd';
-import personalData from '../Components/personal_Data';
-import UserNavbar from '../Components/userNavbar';
+import PersonalData from '../../Components/personal_Data';
+import UserNavbar from '../../Components/userNavbar';
 import { useState } from 'react';
-import Navbar from '../Components/Navbar';
+import Navbar from '../../Components/Navbar';
 import Link from 'next/link';
 
 
-export default function readme() {
+export default function Readme() {
   const { Header, Content, Footer } = Layout;
-  const Personaldata = personalData();
+  const Personaldata = PersonalData();
   const [selectedPersonal, setSelectedPersonal] = useState(null);
   const showDrawer = (personal) => {
     setSelectedPersonal(personal);
@@ -54,7 +54,7 @@ export default function readme() {
           <div className='w-1/4 main-font flex justify-center items-center'>
             <Link className=' items-center w-auto main-icon flex justify-center ' href="/">
               <button type="button" className="border-none text-white bg-gradient-to-br from-yellow-400 to-orange-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-yellow-200 dark:focus:ring-yellow-800 font-extrabold rounded-lg text-base px-6 py-3.5 text-center mr-2 mb-2">
-                Les't Go
+                Let&apos;s Go
               </button>
             </Link>
           </div>

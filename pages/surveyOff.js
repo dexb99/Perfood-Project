@@ -2,11 +2,11 @@ import React from 'react'
 import { Layout, Button, Drawer, Modal, Form, Input } from 'antd';
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
-import UserNavbar from './Components/userNavbar';
+import UserNavbar from '../Components/userNavbar';
 import axios from 'axios';
-import surveyList from './Components/surveyList';
-export default function surveyOff() {
-    const SuveyList = surveyList();
+import SurveyList from '../Components/surveyList';
+export default function SurveyOff() {
+    const Suveylist = SurveyList();
     const [sur, setSur] = useState(`SVY_01`);
     const beginResponse = () => {
         axios.post('http://localhost:3001/createresponse', {
@@ -33,7 +33,7 @@ export default function surveyOff() {
                 <UserNavbar />
             </div>
             <main className=" h-screen sm:px-5 md:px-[10%] xl:px-[20%]">
-                {SuveyList.map((survey, index) => (
+                {Suveylist.map((survey, index) => (
                     <Layout key={index} className="h-full w-full bg-yellow-100 p-3">
                         {/* <Header className='  bg-transparent h-[10%] justify-end items-center flex'>
                 </Header> */}

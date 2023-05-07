@@ -3,7 +3,7 @@ import { PlayCircleFilled, FileOutlined } from '@ant-design/icons'
 import { Layout, Button, Drawer, Modal, Form, Input, Row, Col } from 'antd';
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
-import UserNavbar from '../Components/userNavbar';
+import UserNavbar from '../../Components/userNavbar';
 import { NextSeo } from 'next-seo';
 import Head from 'next/head';
 import {

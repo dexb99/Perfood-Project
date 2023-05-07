@@ -1,23 +1,24 @@
 import React from 'react'
 import { useState, useEffect } from 'react';
-import Questions from '../Components/Questions';
+import Questions from '../../Components/Questions';
 import { Layout } from 'antd';
 import Link from 'next/link';
-import UserNavbar from '../Components/userNavbar';
-import questData from '../Components/questData';
-import surveyList from '../Components/surveyList';
+import UserNavbar from '../../Components/userNavbar';
+import QuestData from '../../Components/questData';
+import SurveyList from '../../Components/surveyList';
 import Router from 'next/router';
-export default function questionPage1() {
-    const SurveyList = surveyList();
+export default function QuestionPage1() {
+    const Surveylist = SurveyList();
     useEffect(() => {
-        SurveyList.map(survey => {
+        Surveylist.map(survey => {
             if (survey.Survey_Status === "off") {
                 Router.push('/surveyOff')
             }
         })
     })
     const { Footer } = Layout
-    const data = questData();
+
+    const data = QuestData();
     // useEffect(()=>{
     //     setCombineData();
     // },[])

@@ -2,15 +2,15 @@ import React from 'react'
 import { Layout, Button, Drawer, Modal, Form, Input } from 'antd';
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
-import UserNavbar from './Components/userNavbar';
+import UserNavbar from '../Components/userNavbar';
 import axios from 'axios';
-import surveyList from './Components/surveyList';
+import SurveyList from '../Components/surveyList';
 import Router from 'next/router';
 export default function Index() {
 
   const [browserName, setBrowserName] = useState('');
   const [ipAddress, setIpAddress] = useState('');
-  const SuveyList = surveyList();
+  const SuveyList = SurveyList();
   const [sur, setSur] = useState(`SVY_01`);
 
   const fetchData = () => {
@@ -49,7 +49,7 @@ export default function Index() {
       } else {
         setSur(surveyID);
         beginResponse();
-        Router.push('/Questionpage1')
+        Router.push('/User/Questionpage1')
       }
     })
 

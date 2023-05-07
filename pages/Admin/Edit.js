@@ -2,14 +2,14 @@ import React from 'react'
 import { Layout, Button, Drawer, Modal, Form, Input, Select, InputNumber } from 'antd';
 import Link from 'next/link';
 import { useState, useRef } from 'react';
-import Navbar from '../Components/Navbar'
+import Navbar from '../../Components/Navbar'
 import axios from 'axios';
-import questData from '../Components/questData';
-import surveyList from '../Components/surveyList';
+import QuestData from '../../Components/questData';
+import SurveyList from '../../Components/surveyList';
 import Router from 'next/router';
 export default function Edit() {
-    const question = questData()
-    const survey = surveyList()
+    const question = QuestData()
+    const survey = SurveyList()
     if (typeof window !== 'undefined') {
         window.onpopstate = function (event) {
             localStorage.clear();
@@ -74,9 +74,9 @@ export default function Edit() {
 
                         <label className='w-full px-[1.625rem] shadow-[0px_4px_4px_rgba(0,_0,_0,_0.25)]  p-1 h-auto'>
                             <div className='font-itim'>หัวข้อแบบสอบถาม</div>
-                            {survey.map(survey => {
+                            {survey.map((survey,index) => {
                                 return (
-                                    <Input required name='surveyname' defaultValue={survey.Survey_Name} placeholder="หัวข้อแบบสอบถาม" className='text-black bigger-font w-full bg-white font-itim rounded-lg ' />
+                                    <Input key={index} required name='surveyname' defaultValue={survey.Survey_Name} placeholder="หัวข้อแบบสอบถาม" className='text-black bigger-font w-full bg-white font-itim rounded-lg ' />
                                 )
                             })}
                         </label>
@@ -102,6 +102,7 @@ export default function Edit() {
                                     {question.choice.map((ix, index) => {
                                         return (
                                             <div
+                                            key={index}
                                                 className=' font-itim w-full p-1 '>
                                                 <div>
 
