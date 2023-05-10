@@ -49,7 +49,7 @@ export default function Index() {
       } else {
         setSur(surveyID);
         beginResponse();
-        Router.push('/Questionpage1')
+        Router.push('/User/Questionpage1')
       }
     })
 
