@@ -1,16 +1,16 @@
 import React from 'react'
-import Questions from '../Components/Questions';
+import Questions from '../../Components/Questions';
 import { Layout, Space, Col, Row, Button } from 'antd';
-import questData from '../Components/questData';
+import questData from '../../Components/questData';
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import UserNavbar from '../Components/userNavbar';
+import UserNavbar from '../../Components/userNavbar';
 import axios from 'axios';
-import surveyList from '../Components/surveyList';
-export default function questionPage3() {
-    const SurveyList = surveyList();
+import SurveyList from '../../Components/surveyList';
+export default function QuestionPage3() {
+    const Surveylist = SurveyList();
     useEffect(() => {
-        SurveyList.map(survey => {
+        Surveylist.map(survey => {
             if (survey.Survey_Status === "off") {
                 Router.push('/surveyOff')
             }

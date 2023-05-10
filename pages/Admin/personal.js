@@ -1,19 +1,19 @@
 import React from 'react'
 import { Layout, Button, Drawer, Modal, Form, Input } from 'antd';
 import Link from 'next/link';
-import Navbar from '../Components/Navbar'
-import personalData from '../Components/personal_Data';
+import Navbar from '../../Components/Navbar'
+import PersonalData from '../../Components/personal_Data';
 import axios from 'axios';
 import Router from 'next/router';
 export default function Personal() {
-    const person = personalData();
+    const person = PersonalData();
     const handleEdit = (event) => {
         const PersonalID = [{
             "PER_ID": event.target.id
         }];
         const setLocalPerID = JSON.stringify(PersonalID)
         localStorage.setItem('PER_ID', setLocalPerID)
-        Router.push('/Admin/Editpersonal')
+      
     }
 
     const handleDelete = (event) => {
@@ -83,7 +83,7 @@ export default function Personal() {
                                         <div className=' w-1/2 flex items-center justify-end text-center '>
                                             <div className='flex bg-gray-400 rounded-lg p-1 font-itim'>
                                                 <div>
-                                                    <Link className='px-5 hover:text-white' id={personal.Personal_ID} onClick={handleEdit} href="#">แก้ไข</Link>
+                                                    <Link className='px-5 hover:text-white' id={personal.Personal_ID} onClick={handleEdit} href="/Admin/Editpersonal">แก้ไข</Link>
                                                 </div>
                                                 <div>
                                                     <Link className='px-5 hover:text-white ' id={personal.Personal_ID} onClick={handleDelete} href="#">ลบ</Link>

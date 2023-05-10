@@ -2,16 +2,16 @@ import React, { useEffect } from 'react'
 import { Layout, Space, Col, Row, Button, Radio, Modal, Form, Input } from 'antd';
 import { useState } from 'react';
 import Link from 'next/link';
-import UserNavbar from '../Components/userNavbar';
+import UserNavbar from '../../Components/userNavbar';
 import { FrownOutlined, MehOutlined, SmileOutlined } from '@ant-design/icons';
 import { Rate } from 'antd';
 import axios from 'axios';
-import surveyList from '../Components/surveyList';
-import Router  from 'next/router';
+import SurveyList from '../../Components/surveyList';
+import Router from 'next/router';
 export default function Summary() {
-    const SurveyList = surveyList();
+    const Surveylist = SurveyList();
     useEffect(() => {
-        SurveyList.map(survey => {
+        Surveylist.map(survey => {
             if (survey.Survey_Status === "off") {
                 Router.push('/surveyOff')
             }
@@ -102,7 +102,8 @@ export default function Summary() {
                         <Row className='flex justify-center items-center h-[80%]'>
                             {
                                 peResult.map((result, index) => (
-                                    <div>
+                                    <div key={index}>
+
                                         <div key={index} className='text-center bigger-font'>
                                             ว้าว ยินดีต้อนสู่
                                         </div>

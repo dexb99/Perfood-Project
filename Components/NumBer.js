@@ -8,7 +8,7 @@ function NumBer() {
             setNumberProps(response.data)
         })
         console.log(NumberProps)
-    }, [])
+    }, [NumberProps])
 
     return (
         <div className='  w-full h-full '>
@@ -23,9 +23,9 @@ function NumBer() {
                 </Col>
             </Row>
             <Row className="w-full h-3/4 shadow-lg">
-                {NumberProps.map((number) => {
+                {NumberProps.map((number,index) => {
                     return (
-                        <Col className='pt-0  w-1/2 h-fit my-auto  pb-2 foot-font text-center  text-yellow-800'>
+                        <Col key={index} className='pt-0  w-1/2 h-fit my-auto  pb-2 foot-font text-center  text-yellow-800'>
                             {number.number}
                         </Col>
                     )

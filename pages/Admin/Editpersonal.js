@@ -3,16 +3,17 @@ import { Button, Form, Input, InputNumber, message, Upload } from 'antd';
 import Link from 'next/link';
 import { InboxOutlined } from '@ant-design/icons';
 import { useState } from 'react';
-import Navbar from '../Components/Navbar'
+import Navbar from '../../Components/Navbar'
 import axios from 'axios';
-import personalByID from '../Components/personalByID';
+import PersonalByID from '../../Components/personalByID';
 import Router from 'next/router';
+import Image from 'next/image';
 export default function EditPersonal() {
     const [file, setFile] = useState(null);
     const [file2, setFile2] = useState(null);
     const [filePreview, setFilePreview] = useState([]);
     const [filePreview2, setFilePreview2] = useState([]);
-    const personal = personalByID();
+    const personal = PersonalByID();
     const [newPername, setNewPername] = useState(null)
     const [newThreshold, setNewThreshold] = useState(null)
     const [newDetail, setNewDetail] = useState(null)
@@ -107,7 +108,7 @@ export default function EditPersonal() {
                                             <input className='font-itim flex w-full' type='file' accept='.jpg,.jpeg,.png' onChange={handleFileChange} />
                                         </div>
                                         <div>
-                                            {filePreview && <img className='p-2 w-full h-auto' src={filePreview} />}
+                                            {filePreview && <Image className='p-2 w-full h-auto' src={filePreview} />}
                                         </div>
                                     </div>
                                     <div className=' w-1/2 sm:w-full md:w-full'>
@@ -118,7 +119,7 @@ export default function EditPersonal() {
                                             <input className='font-itim flex w-full' type='file' accept='.jpg,.jpeg,.png' onChange={handleFileChange2} />
                                         </div>
                                         <div>
-                                            {filePreview2 && <img className='p-2 w-full h-auto' src={filePreview2} />}
+                                            {filePreview2 && <Image className='p-2 w-full h-auto' src={filePreview2} />}
                                         </div>
                                     </div>
 

@@ -12,8 +12,8 @@ function classNames(...classes) {
 
 export default function UserNavbar() {
     const navigation = [
-        { name: 'หน้าแรก', href: '/', current: false,onClick:()=>localStorage.clear() },
-        { name: 'จัดการแบบสอบถาม', href: '#', current: false, onClick: () => {setOpen(true)} },
+        { name: 'หน้าแรก', href: '/', current: false, onClick: () => localStorage.clear() },
+        { name: 'จัดการแบบสอบถาม', href: '#', current: false, onClick: () => { setOpen(true) } },
     ]
     // Set Loading time
     const [loading, setLoading] = useState(false);
@@ -157,11 +157,11 @@ export default function UserNavbar() {
                 footer={[
                     <button type="button" key="cancle" className='text-white bg-gradient-to-br from-yellow-400 to-orange-300 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-yellow-100 dark:focus:ring-yellow-700 px-3 py-2 text-xs font-medium text-center rounded-lg mr-2 mb-2 inline-flex' onClick={onClose}>ยกเลิก</button>,
 
-                    <button  key="submit" className='text-white bg-gradient-to-br from-yellow-500 to-orange-400 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-yellow-200 dark:focus:ring-yellow-800 px-3 py-2 text-xs font-medium text-center rounded-lg mr-2 mb-2 inline-flex' loading={loading} onClick={login} >
+                    <button key="submit" className='text-white bg-gradient-to-br from-yellow-500 to-orange-400 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-yellow-200 dark:focus:ring-yellow-800 px-3 py-2 text-xs font-medium text-center rounded-lg mr-2 mb-2 inline-flex' loading={loading} onClick={login} >
                         เข้าสู่ระบบ
                     </button>
                     ,
-                    <div className='font-itim'>{loginStatus}</div>
+                    <div key={''} className='font-itim'>{loginStatus}</div>
 
                 ]}
                 onCancel={onClose} open={open}>

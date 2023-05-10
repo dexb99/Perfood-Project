@@ -1,20 +1,18 @@
 import React from 'react';
 import { Col, Row, Image, Button, Layout, Drawer, Tooltip } from 'antd';
 import { Chart } from "chart.js";
-import personalData from '../Components/personal_Data';
-import UserNavbar from '../Components/userNavbar';
-import Navbar from '../Components/Navbar';
+import PersonalData from '../../Components/personal_Data';
+import Navbar from '../../Components/Navbar';
 import Link from 'next/link';
-import Table1 from '../Components/Table';
-import Barchart from '../Components/Barchart';
-import surveyList from '../Components/surveyList';
-import NumBer from '../Components/NumBer'
+import Barchart from '../../Components/Barchart';
+import SurveyList from '../../Components/surveyList';
+import NumBer from '../../Components/NumBer'
 import { Switch } from 'antd';
 import { useState, useEffect } from 'react';
 import Router from 'next/router';
 import axios from 'axios';
 export default function Dashboard() {
-    const survey = surveyList();
+    const survey = SurveyList();
     const [status, setStatus] = useState('');
 
     useEffect(() => {
@@ -60,7 +58,7 @@ export default function Dashboard() {
     }
 
     const { Header, Content, Footer } = Layout;
-    const Personaldata = personalData();
+    const Personaldata = PersonalData();
     const [selectedPersonal, setSelectedPersonal] = useState(null);
     const showDrawer = (personal) => {
         setSelectedPersonal(personal);
